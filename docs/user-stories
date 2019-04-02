@@ -1,9 +1,14 @@
 design question data structure
-	are there 3rd party data sources already out there that
-	I could align with?
 design quiz model
 unit test quiz model with sample data
 design controller object
 design minimal view
 integrate model, view, and controller
 style view
+
+some stretch goals
+	play with material-ui lite
+	add sound
+	add a build process and mess with sass
+	investigate 3rd party trivia endpoints that have already json-ified the quizes
+	stand up my own quiz endpoint
