@@ -1,12 +1,41 @@
 let sampleQuiz = {
     "theme": {
-        imgSrc: "assets/img/default-theme",
-        sound: {
+        "imgSrc": "assets/img/default-theme",
+        "sound": {
             thinking: "",
             right: "",
             wrong: "",
             results: ""
-        }
+        },
+        "praise": [
+            {"text": "Nice job."},
+            {"text": "Like a boss."},
+            {"text": "You're so money."},
+            {"text": "And you're sooo good looking."},
+            {"text": "Sweet"},
+            {"text": "You make this look easy."},
+            {"text": "Correct"},
+            {"text": "Chuck Norris thinks you're a badass."},
+            {"text": "Whoa, dude :-)"},
+            {"text": "So good."},
+            {"text": "Right"}
+        ],
+        "approbation": [
+            {"text": "Sorry"},
+            {"text": "Better luck next time."},
+            {"text": "Whoa, dude :-|"},
+            {"text": "Denied"},
+            {"text": "Don't quit your day job."},
+            {"text": "Your mother still loves you."},
+            {"text": "Nope"},
+            {"text": "The light's on but nobody's home."},
+            {"text": "Fail"},
+            {"text": "Wrong"}
+        ]
+    },
+    "timeouts": { // all units are in seconds
+        "perQuestion": 10,
+        "perResult": 2
     },
     "questions": [
         {
@@ -28,7 +57,7 @@ let sampleQuiz = {
             ],
             "answerIndex": 3
         }
-    ]
+    ],
 };
 
 function Quiz(quizQuestions) {
@@ -36,9 +65,12 @@ function Quiz(quizQuestions) {
     this.theme = quizQuestions.theme;
     this.qIndex = 0;
     this.state = "playing"; // playing | done
+    this.perQuestionTimeout = quizQuestions.timeouts.perQuestion;
+    this.perResultTimeout = quizQuestions.timeouts.perResult;
 }
 Quiz.prototype.questions = {};
-Quiz.prototype.timeoutSecs = 10;
+Quiz.prototype.perQuestionTimeout = 10; // units in seconds
+Quiz.prototype.perResultTimeout = 2; // units in seconds
 Quiz.prototype.reset = function() {
     this.qIndex = 0;
     this.state = "playing"
@@ -118,10 +150,26 @@ Quiz.prototype.isCorrect = function(answerIndex) {
     return (answerIndex === correctAnswerIndex);
 }
 Quiz.prototype.length = function() { return this.questions.length };
+Quiz.prototype.getRandomPraise = function() {
+    let i = Math.floor(Math.random() * this.theme.praise.length);
+    return this.theme.praise[i].text;
+}
+Quiz.prototype.getRandomApprobation = function() {
+    let i = Math.floor(Math.random() * this.theme.approbation.length);
+    return this.theme.approbation[i].text;
+}
+Quiz.prototype.getResultTimeoutSecs = function() {
+    return this.perResultTimeout;
+}
+Quiz.prototype.getQuestionTimeoutSecs = function() {
+    return this.perQuestionTimeout;
+}
 
 function UnitTestQuiz() {
     quiz = new Quiz(sampleQuiz);
     console.log("quiz theme: ", quiz.theme);
+    console.log("question timeout: ", quiz.getQuestionTimeoutSecs());
+    console.log("result timeout: ", quiz.getResultTimeoutSecs());
     while (quiz.state === "playing") {
         let state = quiz.takeTurn();
         if (state === "done") break;
@@ -134,6 +182,8 @@ function UnitTestQuiz() {
         console.log(quiz.isCorrect(3));
         let atext = quiz.getAnswerText();
         console.log("answerText: ", atext);
+        console.log(quiz.getRandomPraise());
+        console.log(quiz.getRandomApprobation());
         console.log("-----------------------")
         quiz.nextQuestion();
     }
