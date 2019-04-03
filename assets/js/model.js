@@ -79,14 +79,14 @@ function Quiz(quizQuestions) {
     this.perQuestionTimeout = quizQuestions.timeouts.perQuestion;
     this.perResultTimeout = quizQuestions.timeouts.perResult;
     this.numCorrect = 0;
-    this.countdown = this.perQuestionTimeout;
+    this.countdown = this.perQuestionTimeout / 1000; // in secs
 }
 Quiz.prototype.qIndex = 0;
 Quiz.prototype.questions = {};
 Quiz.prototype.reset = function() {
     this.qIndex = 0;
     this.numCorrect = 0;
-    this.countdown = this.perQuestionTimeout;
+    this.countdown = this.perQuestionTimeout / 1000; // in secs
     this.state = "playing"
 }
 Quiz.prototype.takeTurn = function() {
