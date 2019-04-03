@@ -22,7 +22,7 @@ For the longest time, I was unable to get the silly results to display until I r
 
 ![alt tag](docs/img/bug-duplicate-methods.png)
 
-The time invested with sweetalerts in a previous project allowed me to leverage the promise-based syntax nicely with action blocking in the replay scenario (sans the annoying behavior of native alerts that oftend render before some other prior DOM updates have rendered).
+The time invested with sweetalerts in a previous project allowed me to leverage the promise-based syntax nicely with action blocking in the replay scenario (sans the annoying behavior of native alerts that often render before some other prior DOM updates have rendered).
 
 ![alt tag](docs/img/replay.png)
 
