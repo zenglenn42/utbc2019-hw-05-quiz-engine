@@ -15,7 +15,7 @@ QuizController.prototype.playRound = function() {
     console.log("playRound");
     this.reset();
     this.showQuizItem();
-    let timeout = this.quiz.perQuestionTimeout * 1000;
+    let timeout = this.quiz.perQuestionTimeout;
     this.nextQuestionInterval = setInterval(this.getNextQuestionCallback(), timeout);
 }
 QuizController.prototype.getNextQuestionCallback = function() {

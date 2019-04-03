@@ -34,9 +34,9 @@ let sampleQuiz = {
             {"text": "Wrong"}
         ]
     },
-    "timeouts": { // all units are in seconds
-        "perQuestion": 5,
-        "perResult": 2
+    "timeouts": { // all units are in msecs.
+        "perQuestion": 5000,
+        "perResult": 2000
     },
     "questions": [
         {
@@ -83,8 +83,6 @@ function Quiz(quizQuestions) {
 }
 Quiz.prototype.qIndex = 0;
 Quiz.prototype.questions = {};
-Quiz.prototype.perQuestionTimeout = 10; // units in seconds
-Quiz.prototype.perResultTimeout = 2; // units in seconds
 Quiz.prototype.reset = function() {
     this.qIndex = 0;
     this.numCorrect = 0;
