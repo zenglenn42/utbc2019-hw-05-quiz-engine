@@ -30,7 +30,7 @@ The time invested with sweetalerts in a previous project allowed me to leverage 
 
 ## Blue Sky
 
-As with my Word Stop ✋ game, I see all sorts of potential for a data-driven design, supporting various quizzes with unique visual and audio themes.  
+As with my [Word Stop](https://github.com/zenglenn42/utbc2019-hw-03-wordgame/blob/fb11d26422f2a119c03826527539e3fdb5661f91/assets/js/lexicon.js#L36) game, I see all sorts of potential for a data-driven design, supporting various quizzes with unique visual and audio themes.  
 
 Given that I'm learning about ajax and api endpoints, I wonder if there are json or xml standards already out there for this kind of data?  Perhaps my little quiz engine could be designed to tap into a wealth of content already out there.
 
@@ -53,7 +53,7 @@ I'm happy with the basic frontend design offered up in the problem spec, though 
 
 Stacking the choices vertically maximizes horizontal screen usage and opens up our choices for longer text.  It also works nicely equally well on desktop and mobile.
 
-For the backend data design, I'll go with a relatively simple structure, though I'll probably use some objects to allow for future support of responses that include images and other attributes besides just straight text.  I'll probably wedge in /some/ basic thematic meta data along with the quiz questions, now that I've been through this routine with Word Stop ✋.
+For the backend data design, I'll go with a relatively simple structure, though I'll probably use some objects to allow for future support of responses that include images and other attributes besides just straight text.  I'll probably wedge in /some/ basic thematic meta data along with the quiz questions, now that I've been through this routine with [Word Stop](https://github.com/zenglenn42/utbc2019-hw-03-wordgame/blob/fb11d26422f2a119c03826527539e3fdb5661f91/assets/js/lexicon.js#L36).
 
 I'm really liking promised-based [sweetalerts](https://sweetalert.js.org/), so they will likely make an appearance in my user interface.  They also support timeout behavior that would be natural to leverage when reporting the correct answer before automatically proceeding to the next question.
 
