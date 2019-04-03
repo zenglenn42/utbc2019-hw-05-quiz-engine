@@ -18,7 +18,7 @@ and worked to get the controller to pull in quiz questions from the json in the 
 
 ![alt tag](docs/img/count-down.png)
 
-For the longest time, I was unable to get the silly results to display until I realized I had two methods by the same name and I was mutating the one that wasn't firing!  I guess this is the price I pay for javascript's permissive and relaxed feel versus the more hawkish forrays I've had with compiled languages like C++:
+For the longest time, I was unable to get the silly results to display until I realized I somehow had /two/ methods by the same name and I was mutating the one that wasn't firing!  I guess this is the price I pay for javascript's permissive and relaxed feel versus the more hawkish forrays I've had with compiled languages like C++:
 
 ![alt tag](docs/img/bug-duplicate-methods.png)
 
