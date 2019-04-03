@@ -27,7 +27,7 @@ QuizController.prototype.getNextQuestionCallback = function() {
     let that = this;
     function nextQuestionCallback() {
         if (that.quiz.nextQuestion()) {
-            that.quiz.countdown = that.quiz.perQuestionTimeout / 1000;
+            that.quiz.resetCountdown();
             that.showQuizItem()
         } else {
             // out of questions

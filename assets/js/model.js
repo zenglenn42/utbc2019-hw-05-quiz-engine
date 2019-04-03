@@ -79,15 +79,21 @@ function Quiz(quizQuestions) {
     this.perQuestionTimeout = quizQuestions.timeouts.perQuestion;
     this.perResultTimeout = quizQuestions.timeouts.perResult;
     this.numCorrect = 0;
-    this.countdown = this.perQuestionTimeout / 1000; // in secs
+    this.resetCountdown();
 }
 Quiz.prototype.qIndex = 0;
 Quiz.prototype.questions = {};
 Quiz.prototype.reset = function() {
     this.qIndex = 0;
     this.numCorrect = 0;
-    this.countdown = this.perQuestionTimeout / 1000; // in secs
+    this.resetCountdown();
     this.state = "playing"
+}
+Quiz.prototype.resetCountdown = function() {
+    this.countdown = this.perQuestionTimeout / 1000;
+}
+Quiz.prototype.getCountdown = function() {
+    return this.countdown;
 }
 Quiz.prototype.takeTurn = function() {
     if (this.state === "playing") {
