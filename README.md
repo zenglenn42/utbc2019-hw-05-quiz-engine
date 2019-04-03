@@ -15,7 +15,7 @@ As with my Word Stop ✋ game, I see all sorts of potential for a data-driven de
 
 Given that I'm learning about ajax and api endpoints, I wonder if there are json or xml standards already out there for this kind of data?  Perhaps my little quiz engine could be designed to tap into a wealth of content already out there.
 
-![alt tag](docs/img/ui-spec.png)
+![alt tag](docs/img/blue-sky.jpg)
 ([Image](https://flic.kr/p/24B2fo9) courtesy Gary Campbell-Hall, CC BY 2.0)
 
 The other blue sky thought is how fun it would be to introduce some of the cool learning models out there that look at memory attenuation and how mastery and learning efficiency can be improved by repeating a question just at the point we have to struggle a little bit to recall it.
@@ -30,7 +30,7 @@ Coming up with a good deck of cards is very time consuming and really good decks
 
 I'm happy with the basic frontend design offered up in the problem spec, though I'll probably restyle it a bit:
 
-![alt tag](docs/img/ui-spec.png)
+![alt tag](docs/img/ui-spec.jpg)
 
 Stacking the choices vertically maximizes horizontal screen usage and opens up our choices for longer text.  It also works nicely equally well on desktop and mobile.
 
