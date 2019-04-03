@@ -42,7 +42,7 @@ Given that I'm learning about ajax and api endpoints, I wonder if there are json
 
 The other blue sky thought is how fun it would be to introduce some of the cool learning models out there that look at memory attenuation and how mastery and learning efficiency can be improved by repeating a question just at the point we have to struggle a little bit to recall it.
 
-I've played with some of these so called 'spaced repetition systems' but have always felt disappointment at the lack of curation for the quiz decks that drive them and that get thrown up on the web.  There's no way to gauage the quality of 3rd party content, to easily flag errors, to see a history of changes over time, to contribute suggestions such that the content becomes better and more authoratative over time.
+I've played with some of these so called '[spaced repetition systems](https://en.wikipedia.org/wiki/Spaced_repetition)' but have always felt disappointment at the lack of curation for the quiz decks that drive them and that get thrown up on the web.  There's no way to gauage the quality of 3rd party content, to easily flag errors, to see a history of changes over time, to contribute suggestions such that the content becomes better and more authoratative over time.
 
 Coming up with a good deck of cards is very time consuming and really good decks should rise above the others and be evangelized and possibly opened sourced for community maintenance.  Fortunately a well understood model exists for this ... up-and-down voting, likes, and stars on social media.
 
