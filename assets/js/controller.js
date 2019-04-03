@@ -26,18 +26,18 @@ QuizController.prototype.playRound = function() {
 QuizController.prototype.getNextQuestionCallback = function() {
     let that = this;
     function nextQuestionCallback() {
-        if (that.quiz.nextQuestion()) {
-            that.quiz.resetCountdown();
-            that.showQuizItem()
-        } else {
-            // out of questions
+        let responseCB = that.getResponseCallback();
+        swal({
+            text: "Time's Up!\nAnswer: " + that.quiz.getAnswerText(),
+            icon: "error",
+            timer: that.quiz.perResponseTimeout
+        }).then(function() {
             clearTimeout(that.nextQuestionInterval);
             clearTimeout(that.countdownInterval);
             that.showTimeRemaining(); // display final '0' at end of quiz
-            // don't allow more than one answer per question
-            that.choicesId.innerHTML = "";
-            that.showResults();
-        }
+            that.quiz.resetCountdown();
+            responseCB();
+        });
     }
     return nextQuestionCallback;
 }
@@ -116,14 +116,17 @@ QuizController.prototype.getChoiceListenerCallback = function() {
         }
         // Allow only one answer to be selected
 
-        // Sadly, this doesn't seem to remove the click listener on the
-        // choices.  So I'm just gonna wipeout the innerHTML for now.
+        // Sadly, the following doesn't seem to remove the click listener on the
+        // choices.  
         //
         // els = document.querySelectorAll(".choice");
         // for (let el of els) {
         //     console.log("removing el = ", el);
         //     el.removeEventListener('click', that.choiceListenerCallback, false);
         // }
+        //
+        // So I'm just gonna wipeout the innerHTML for now.
+        //
         that.choicesId.innerHTML = "";
     }
     return choiceListenerCallback;
