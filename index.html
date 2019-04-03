@@ -4,12 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="assets/js/sweetalert-2.1.2.min.js"></script>
+    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
     <script type="text/javascript" src="assets/js/model.js"></script>
+    <script type="text/javascript" src="assets/js/controller.js"></script>
     <title>Trivia Game</title>
   </head>
   <body>
+    <main>
+      <h1 id="theme-name">Quiz Time ⏰</h1>
+      <h3 id="tr-label">
+        Time Remaining: <span id="time-remaining">0</span> Seconds
+      </h3>
+      <h3 id="question">question goes here</h3>
+      <div id="choices">choices</div>
+      <div id="response" style="visibility: hidden">response</div>
+      <div id="results" style="visibility: hidden">results</div>
+    </main>
     <script type="text/javascript">
-      UnitTestQuiz();
+      window.onload = function(e) {
+        quizController = new QuizController(
+          "theme-name",
+          "time-remaining",
+          "question",
+          "choices",
+          "response",
+          "results"
+        );
+        quizController.play("Welcome to Quiz Time ⏰", "Start");
+      };
     </script>
   </body>
 </html>
