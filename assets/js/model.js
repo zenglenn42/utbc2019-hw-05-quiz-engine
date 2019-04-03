@@ -36,7 +36,7 @@ let sampleQuiz = {
     },
     "timeouts": { // all units are in msecs.
         "perQuestion": 5000,
-        "perResult": 2000
+        "perResponse": 2000
     },
     "questions": [
         {
@@ -77,7 +77,7 @@ function Quiz(quizQuestions) {
     this.qIndex = 0;
     this.state = "playing"; // playing | done
     this.perQuestionTimeout = quizQuestions.timeouts.perQuestion;
-    this.perResultTimeout = quizQuestions.timeouts.perResult;
+    this.perResponseTimeout = quizQuestions.timeouts.perResponse;
     this.numCorrect = 0;
     this.resetCountdown();
 }
@@ -190,7 +190,7 @@ Quiz.prototype.getRandomApprobation = function() {
     return this.theme.approbation[i].text;
 }
 Quiz.prototype.getResultTimeoutSecs = function() {
-    return this.perResultTimeout;
+    return this.perResponseTimeout;
 }
 Quiz.prototype.getQuestionTimeoutSecs = function() {
     return this.perQuestionTimeout;
