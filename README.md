@@ -11,6 +11,7 @@ I knocked out the guts of the quiz [json](https://github.com/zenglenn42/utbc2019
 ![alt tag](docs/img/model-unit-test.png)
 
 ![alt tag](docs/img/model-controller.png)
+(How I'm feeling about the model and controller in this project.)
 
 The controller was another story.  It felt more like a street fight and had a ton of callbacks to manage both input clicks and various interval timers.  First I stood up a primitive user interface:
 
