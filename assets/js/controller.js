@@ -31,10 +31,12 @@ QuizController.prototype.getNextQuestionCallback = function() {
             that.showQuizItem()
         } else {
             // out of questions
-            console.log("clearing timeouts...");
             clearTimeout(that.nextQuestionInterval);
             clearTimeout(that.countdownInterval);
             that.showTimeRemaining(); // display final '0' at end of quiz
+            // don't allow more than one answer per question
+            that.choicesId.innerHTML = "";
+            that.showResults();
         }
     }
     return nextQuestionCallback;
@@ -89,12 +91,10 @@ QuizController.prototype.getChoiceListenerCallback = function() {
     let that = this;
     function choiceListenerCallback() {
         console.log("choiceListenerCallback");
-        console.log("clearing timeouts...");
         clearTimeout(that.nextQuestionInterval);
         clearTimeout(that.countdownInterval);
         that.quiz.resetCountdown();
         let answerIndex = parseInt(this.getAttribute("data-index"));
-        console.log("answerIndex = ", answerIndex);
         let responseCB = that.getResponseCallback();
         if (that.quiz.isCorrect(answerIndex)) {
             swal({
@@ -102,6 +102,7 @@ QuizController.prototype.getChoiceListenerCallback = function() {
                 icon: "success",
                 timer: that.quiz.perResponseTimeout
             }).then(function() { 
+                that.quiz.incCorrect();
                 responseCB();
             });
         } else {
@@ -113,7 +114,8 @@ QuizController.prototype.getChoiceListenerCallback = function() {
                 responseCB();
             });
         }
-        // allow only one answer to be selected
+        // Allow only one answer to be selected
+
         // Sadly, this doesn't seem to remove the click listener on the
         // choices.  So I'm just gonna wipeout the innerHTML for now.
         //
@@ -140,15 +142,18 @@ QuizController.prototype.getResponseCallback = function() {
             that.countdownInterval = setInterval(that.getCountdownIntervalCallback(), 1000);
         } else {
             console.log("thanks for playing");
+            that.showResults();
         }
     }
     return responseCallback;
 }
+QuizController.prototype.showResults = function() {
+    this.displayReset();
+    let str = `You scored ${this.quiz.numCorrect} out of ${this.quiz.length()}.`;
+    this.resultsId.textContent = str;
+    this.resultsId.style.visibility = "visible";
+}
 QuizController.prototype.showResponse = function(text) {
     this.responseId.textContent = text;
     this.responseId.style.visibility = "visible";
-}
-QuizController.prototype.showResults = function(text) {
-    this.resultsId.textContent = text;
-    this.resultsId.style.visibility = "visible";
 }

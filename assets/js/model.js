@@ -175,7 +175,9 @@ Quiz.prototype.isCorrect = function(answerIndex) {
     return (answerIndex === correctAnswerIndex);
 }
 Quiz.prototype.incCorrect = function() {
-    this.numCorrect++;
+    if (this.state === "playing") {
+        this.numCorrect++;
+    }
 }
 Quiz.prototype.getNumCorrect = function() {
     return this.numCorrect;
