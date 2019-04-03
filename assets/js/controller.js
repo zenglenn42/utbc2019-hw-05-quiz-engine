@@ -9,19 +9,27 @@ function QuizController(themeNameId, timeRemainingId, questionId, choicesId, res
     this.choiceListenerCallback = undefined;
     this.nextQuestionInterval = undefined;
     this.countdownInterval = undefined;
-    this.playRound();
 }
-QuizController.prototype.playRound = function() {
-    console.log("playRound");
+QuizController.prototype.play = function(bannerText, buttonText = "Play") {
     this.reset();
-    this.showQuizItem();
+    swal({
+        text: bannerText,
+        buttons: [true, buttonText]
+    }).then((yesPlay) => {
+        if (yesPlay) {
+            this.showQuizItem();
 
-    // Give user a limited amount of time per question.
-    let timeout = this.quiz.perQuestionTimeout;
-    this.nextQuestionInterval = setInterval(this.getNextQuestionCallback(), timeout);
-
-    // Configure a 1-second interval to drive a count down timer.
-    this.countdownInterval = setInterval(this.getCountdownIntervalCallback(), 1000);
+            // Give user a limited amount of time per question.
+            let timeout = this.quiz.perQuestionTimeout;
+            this.nextQuestionInterval = setInterval(this.getNextQuestionCallback(), timeout);
+        
+            // Configure a 1-second interval to drive a count down timer.
+            this.countdownInterval = setInterval(this.getCountdownIntervalCallback(), 1000);
+        } else {
+            trl = document.getElementById("tr-label");
+            trl.style.visibility = "hidden";
+        }
+    });
 }
 QuizController.prototype.getNextQuestionCallback = function() {
     let that = this;
@@ -152,9 +160,11 @@ QuizController.prototype.getResponseCallback = function() {
 }
 QuizController.prototype.showResults = function() {
     this.displayReset();
-    let str = `You scored ${this.quiz.numCorrect} out of ${this.quiz.length()}.`;
-    this.resultsId.textContent = str;
+    let resultsStr = `You scored ${this.quiz.numCorrect} out of ${this.quiz.length()}.`;
+    this.resultsId.textContent = resultsStr;
     this.resultsId.style.visibility = "visible";
+    let bannerText = `Thanks for playing Quiz Time ⏰!\n${resultsStr}`;
+    this.play(bannerText, buttonText = "Replay");
 }
 QuizController.prototype.showResponse = function(text) {
     this.responseId.textContent = text;
