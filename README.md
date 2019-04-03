@@ -2,11 +2,30 @@
 
 This week I'm working on an interval timer-based quiz game I'm calling Quiz Time ⏰.
 
-Users answer a series of multiple choice questions, hopefully respond before a count-down timer expires and advances to the next question.
+Users answer a series of multiple choice questions in the presence of a count-down timer.  Results are presented at the end with the option to replay the quiz.
 
 # Implementation Details
 
-I knocked out the guts of the model and controller in a day.
+I knocked out the guts of the model and controller in a day.  The models come pretty easily for me and are a natural starting point.  I don't need any other pieces to get it going other than some wafer thin html and a console log:
+
+![alt tag](docs/img/model-unit-test.png)
+
+The controller was another story.  It felt more like a street fight and had a ton of callbacks to manage both input clicks and various interval timers.  First I stood up a primitive user interface:
+
+![alt tag](docs/img/skeleton-ui.png)
+
+and worked to get the controller to pull in quiz questions from the json in the model.  I also add clickability to the response text.  Once I got that going I started layering in the timer intervals.  I dropped out of flow state a couple times and felt like I was atop some high-rise contruction project.  I restarted by just focusing on the interval that brings up a new quiz item every 10 seconds, iterating over a short quiz of 3 questions for starters.  Then I added the 1-second interval timer that drives the countdown timer.  The count itself resides in the quiz model, but I provide methods to mutate it.  Several times, I forget to actually /invoke/ the closure that returns the callback reference as an argument to setInterval, killing the expected periodic behavior.  I also got tripped up by the whole msec versus secs thing and would introduce what I thought was a 1 second timeout, only to have it fire in 1 msec with stuff happening in rapid succession.  It was a beautiful thing to finally see questions advancing and the countdown timer at the top of the page decrementing:
+
+![alt tag](docs/img/count-down.png)
+
+For the longest time, I was unable to get the silly results to display until I realized I had two methods by the same name and I was mutating the one that wasn't firing!  I guess this is the price I pay for javascript's permissive and relaxed feel versus the more hawkish forrays I've had with compiled languages like C++:
+
+![alt tag](docs/img/bug-duplicate-methods.png)
+
+The time invested with sweetalerts in a previous project allowed me to leverage the promise-based syntax nicely with action blocking in the replay scenario (sans the annoying behavior of native alerts that oftend render before some other prior DOM updates have rendered).
+
+![alt tag](docs/img/replay.png)
+
 # Designer's Log
 
 ## Blue Sky
