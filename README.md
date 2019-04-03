@@ -6,7 +6,7 @@ Users answer a series of multiple choice questions in the presence of a count-do
 
 # Implementation Details
 
-I knocked out the guts of the model and controller in a day.  The models come pretty easily for me and are a natural starting point.  I don't need any other pieces to get it going other than some wafer thin html and a console log:
+I knocked out the guts of the quiz [json](https://github.com/zenglenn42/utbc2019-hw-05-quiz-engine/blob/7d374a4b17eee2ca725413aefdeb9055ce41fc12/assets/js/model.js#L1), [model](https://github.com/zenglenn42/utbc2019-hw-05-quiz-engine/blob/7d374a4b17eee2ca725413aefdeb9055ce41fc12/assets/js/model.js#L74) and [controller](https://github.com/zenglenn42/utbc2019-hw-05-quiz-engine/blob/7d374a4b17eee2ca725413aefdeb9055ce41fc12/assets/js/controller.js#L1) in a day.  The models come pretty easily for me and are a natural starting point.  I don't need any other pieces to get it going other than some wafer thin html and a console log:
 
 ![alt tag](docs/img/model-unit-test.png)
 
