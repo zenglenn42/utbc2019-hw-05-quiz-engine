@@ -1,5 +1,6 @@
 let sampleQuiz = {
     "theme": {
+        "name": "Test Theme",
         "imgSrc": "assets/img/default-theme",
         "sound": {
             thinking: "",
@@ -34,7 +35,7 @@ let sampleQuiz = {
         ]
     },
     "timeouts": { // all units are in seconds
-        "perQuestion": 10,
+        "perQuestion": 5,
         "perResult": 2
     },
     "questions": [
@@ -56,6 +57,16 @@ let sampleQuiz = {
                 {"text": "teal, really"}
             ],
             "answerIndex": 3
+        },
+        {
+            "question": {"text": "Some question?"},
+            "choices": [
+                {"text": "answer 1"},
+                {"text": "answer b"},
+                {"text": "answer red"},
+                {"text": "answer pizza"}
+            ],
+            "answerIndex": 2
         }
     ],
 };
@@ -67,12 +78,17 @@ function Quiz(quizQuestions) {
     this.state = "playing"; // playing | done
     this.perQuestionTimeout = quizQuestions.timeouts.perQuestion;
     this.perResultTimeout = quizQuestions.timeouts.perResult;
+    this.numCorrect = 0;
+    this.countdown = this.perQuestionTimeout;
 }
+Quiz.prototype.qIndex = 0;
 Quiz.prototype.questions = {};
 Quiz.prototype.perQuestionTimeout = 10; // units in seconds
 Quiz.prototype.perResultTimeout = 2; // units in seconds
 Quiz.prototype.reset = function() {
     this.qIndex = 0;
+    this.numCorrect = 0;
+    this.countdown = this.perQuestionTimeout;
     this.state = "playing"
 }
 Quiz.prototype.takeTurn = function() {
@@ -84,7 +100,12 @@ Quiz.prototype.takeTurn = function() {
     return this.state;
 }
 Quiz.prototype.nextQuestion = function() {
-    this.qIndex++;
+    if (this.questions.length == 0) return false;
+    if (this.qIndex < (this.questions.length - 1)) {
+        this.qIndex++;
+        return true;
+    }
+    return false;
 }
 Quiz.prototype.getQuestionText = function() {
     let q = "";
@@ -149,6 +170,12 @@ Quiz.prototype.isCorrect = function(answerIndex) {
     }
     return (answerIndex === correctAnswerIndex);
 }
+Quiz.prototype.incCorrect = function() {
+    this.numCorrect++;
+}
+Quiz.prototype.getNumCorrect = function() {
+    return this.numCorrect;
+}
 Quiz.prototype.length = function() { return this.questions.length };
 Quiz.prototype.getRandomPraise = function() {
     let i = Math.floor(Math.random() * this.theme.praise.length);
@@ -164,6 +191,12 @@ Quiz.prototype.getResultTimeoutSecs = function() {
 Quiz.prototype.getQuestionTimeoutSecs = function() {
     return this.perQuestionTimeout;
 }
+Quiz.prototype.getThemeName = function() {
+    return this.theme.name;
+}
+Quiz.prototype.getThemeImgSrc = function() {
+    return this.theme.imgSrc;
+}
 
 function UnitTestQuiz() {
     quiz = new Quiz(sampleQuiz);
@@ -171,7 +204,7 @@ function UnitTestQuiz() {
     console.log("question timeout: ", quiz.getQuestionTimeoutSecs());
     console.log("result timeout: ", quiz.getResultTimeoutSecs());
     while (quiz.state === "playing") {
-        let state = quiz.takeTurn();
+        let state = quiz.incCorrect();
         if (state === "done") break;
         let q = quiz.getQuestionText();
         console.log("Q: ", q);
