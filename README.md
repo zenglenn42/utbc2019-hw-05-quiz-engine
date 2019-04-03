@@ -35,7 +35,7 @@ The time invested with sweetalerts in a previous project allowed me to leverage 
 
 As with my [Word Stop](https://github.com/zenglenn42/utbc2019-hw-03-wordgame/blob/fb11d26422f2a119c03826527539e3fdb5661f91/assets/js/lexicon.js#L36) game, I see all sorts of potential for a data-driven design, supporting various quizzes with unique visual and audio themes.  
 
-Given that I'm learning about ajax and api endpoints, I wonder if there are [json or xml standards already out](https://www.programmableweb.com/api/quizlet-flashcards) there for this kind of data?  Perhaps my little quiz engine could be designed to tap into a wealth of content already out there.
+Given that I'm learning about ajax and api endpoints, I wonder if there are [json or xml standards already out](https://quizlet.com/api/2.0/docs) there for this kind of data?  Perhaps my little quiz engine could be designed to tap into a wealth of content already out there.
 
 ![alt tag](docs/img/blue-sky.jpg)
 ([Image](https://flic.kr/p/24B2fo9) courtesy Gary Campbell-Hall, CC BY 2.0)
