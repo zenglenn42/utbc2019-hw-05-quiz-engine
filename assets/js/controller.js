@@ -5,39 +5,93 @@ function QuizController(themeNameId, timeRemainingId, questionId, choicesId, res
     this.choicesId = document.getElementById(choicesId);
     this.responseId = document.getElementById(responseId);
     this.resultsId = document.getElementById(resultsId);
-    this.quiz = new Quiz(sampleQuiz);
+    this.quiz = new Quiz(comicsQuiz);
     this.choiceListenerCallback = undefined;
     this.nextQuestionInterval = undefined;
     this.countdownInterval = undefined;
 }
-QuizController.prototype.play = function(bannerText, buttonText = "Play") {
-    this.reset();
-    swal({
-        text: bannerText,
-        buttons: [true, buttonText]
-    }).then((yesPlay) => {
-        if (yesPlay) {
-            this.showQuizItem();
 
-            // Give user a limited amount of time per question.
-            let timeout = this.quiz.perQuestionTimeout;
-            this.nextQuestionInterval = setInterval(this.getNextQuestionCallback(), timeout);
+QuizController.prototype.play = function(bannerText, buttonText = "Play") {
+    let quizSelections = this.quiz.getQuizSelections();
+    console.log("QuizController.play quizSelections = ", quizSelections);
+    this.reset();
+    let quizKey = "";
+    swal({
+        title: 'Select Quiz',
+        input: 'select',
+        inputOptions: quizSelections.inputOptions,
+        inputPlaceholder: quizSelections.inputPlaceholder,
+        inputValue: quizSelections.inputValue,
+        showCancelButton: true,
+        text: bannerText
+      }).then(
+          this.getSelectPromiseCallback()
+      );
+ 
+
+    //   Swal.fire({title: 'Are you sure?', showCancelButton: true}).then(result => {
+    //     if (result.value) {
+    //       // handle Confirm button click
+    //       // result.value will contain `true` or the input value
+    //     } else {
+    //       // handle dismissals
+    //       // result.dismiss can be 'cancel', 'overlay', 'esc' or 'timer'
+    //     }
+    //   })
+    // swal({
+    //     text: bannerText,
+    //     buttons: [true, buttonText]
+    // }).then((yesPlay) => {
+    //     console.log("yesPlay = ", yesPlay);
+    //     if (yesPlay) {
+    //         this.showQuizItem();
+
+    //         // Give user a limited amount of time per question.
+    //         let timeout = this.quiz.perQuestionTimeout;
+    //         this.nextQuestionInterval = setInterval(this.getNextQuestionCallback(), timeout);
         
-            // Configure a 1-second interval to drive a count down timer.
-            this.countdownInterval = setInterval(this.getCountdownIntervalCallback(), 1000);
-        } else {
-            trl = document.getElementById("tr-label");
-            trl.style.visibility = "hidden";
-        }
-    });
+    //         // Configure a 1-second interval to drive a count down timer.
+    //         this.countdownInterval = setInterval(this.getCountdownIntervalCallback(), 1000);
+    //     } else {
+    //         trl = document.getElementById("tr-label");
+    //         trl.style.visibility = "hidden";
+    //     }
+    // });
 }
+
+QuizController.prototype.getSelectPromiseCallback = function() {
+    let that = this;
+    function selectPromiseCallback(result) {
+        if (result === "") {
+            console.log("Assume cancel!");
+            let trl = document.getElementById("tr-label");
+            trl.style.visibility = "hidden";
+        } else {
+            quizKey = result;
+            console.log("that = ", that);
+            // that.quiz.setQuiz(quizKey);
+            that.quiz.quiz = that.quiz.quizzes.createQuiz(quizKey);
+            console.log("that.quiz.quiz = ", that.quiz.quiz);
+            that.showQuizItem();
+
+            // // Give user a limited amount of time per question.
+            let timeout = that.quiz.perQuestionTimeout;
+            that.nextQuestionInterval = setInterval(that.getNextQuestionCallback(), timeout);
+        
+            // // Configure a 1-second interval to drive a count down timer.
+            that.countdownInterval = setInterval(that.getCountdownIntervalCallback(), 1000);
+        }
+    }
+    return selectPromiseCallback;
+}
+
 QuizController.prototype.getNextQuestionCallback = function() {
     let that = this;
     function nextQuestionCallback() {
         let responseCB = that.getResponseCallback();
         swal({
             text: "Time's Up!\nAnswer: " + that.quiz.getAnswerText(),
-            icon: "error",
+            type: "error",
             timer: that.quiz.perResponseTimeout
         }).then(function() {
             clearTimeout(that.nextQuestionInterval);
@@ -45,6 +99,10 @@ QuizController.prototype.getNextQuestionCallback = function() {
             that.showTimeRemaining(); // display final '0' at end of quiz
             that.quiz.resetCountdown();
             responseCB();
+        }).catch(function(e) {
+            console.log("that = ", that);
+            console.log("e = ", e);
+            console.log("got here");
         });
     }
     return nextQuestionCallback;
@@ -107,7 +165,7 @@ QuizController.prototype.getChoiceListenerCallback = function() {
         if (that.quiz.isCorrect(answerIndex)) {
             swal({
                 text: that.quiz.getRandomPraise(),
-                icon: "success",
+                type: "success",
                 timer: that.quiz.perResponseTimeout
             }).then(function() { 
                 that.quiz.incCorrect();
@@ -116,7 +174,7 @@ QuizController.prototype.getChoiceListenerCallback = function() {
         } else {
             swal({
                 text: "Answer: " + that.quiz.getAnswerText(),
-                icon: "error",
+                type: "error",
                 timer: that.quiz.perResponseTimeout
             }).then(function() {
                 responseCB();

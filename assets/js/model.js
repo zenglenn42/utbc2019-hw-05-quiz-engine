@@ -1,93 +1,40 @@
-let sampleQuiz = {
-    "theme": {
-        "name": "Test Theme",
-        "imgSrc": "assets/img/default-theme",
-        "sound": {
-            thinking: "",
-            right: "",
-            wrong: "",
-            results: ""
-        },
-        "praise": [
-            {"text": "Nice job."},
-            {"text": "Like a boss."},
-            {"text": "You're so money."},
-            {"text": "And you're sooo good looking."},
-            {"text": "Sweet"},
-            {"text": "You make this look easy."},
-            {"text": "Correct"},
-            {"text": "Chuck Norris thinks you're a badass."},
-            {"text": "Whoa, dude :-)"},
-            {"text": "So good."},
-            {"text": "Right"}
-        ],
-        "approbation": [
-            {"text": "Sorry"},
-            {"text": "Better luck next time."},
-            {"text": "Whoa, dude :-|"},
-            {"text": "Denied"},
-            {"text": "Don't quit your day job."},
-            {"text": "Your mother still loves you."},
-            {"text": "Nope"},
-            {"text": "The light's on but nobody's home."},
-            {"text": "Fail"},
-            {"text": "Wrong"}
-        ]
-    },
-    "timeouts": { // all units are in msecs.
-        "perQuestion": 5000,
-        "perResponse": 2000
-    },
-    "questions": [
-        {
-            "question": {"text": "Who's on first?"},
-            "choices": [
-                {"text": "Who"},
-                {"text": "What"},
-                {"text": "Idunno"}
-            ],
-            "answerIndex": 0
-        },
-        {
-            "question": {"text": "What's your favorite color?"},
-            "choices": [
-                {"text": "yellow"},
-                {"text": "no, blue!"},
-                {"text": "possibly indigo"},
-                {"text": "teal, really"}
-            ],
-            "answerIndex": 3
-        },
-        {
-            "question": {"text": "Some question?"},
-            "choices": [
-                {"text": "answer 1"},
-                {"text": "answer b"},
-                {"text": "answer red"},
-                {"text": "answer pizza"}
-            ],
-            "answerIndex": 2
-        }
-    ],
-};
 
-function Quiz(quizQuestions) {
-    this.questions = quizQuestions.questions;
-    this.theme = quizQuestions.theme;
+function Quiz() {
+    this.quizzes = new ThemedQuizzes();
+    this.quizKey = "Test";
+    this.quiz = this.quizzes.createQuiz(this.quizKey);
     this.qIndex = 0;
     this.state = "playing"; // playing | done
-    this.perQuestionTimeout = quizQuestions.timeouts.perQuestion;
-    this.perResponseTimeout = quizQuestions.timeouts.perResponse;
+    this.perQuestionTimeout = 5000;
+    this.perResponseTimeout = 2000;
     this.numCorrect = 0;
     this.resetCountdown();
 }
 Quiz.prototype.qIndex = 0;
-Quiz.prototype.questions = {};
 Quiz.prototype.reset = function() {
     this.qIndex = 0;
     this.numCorrect = 0;
     this.resetCountdown();
-    this.state = "playing"
+    this.state = "playing";
+    console.log("Quiz.reset this.quiz = ", this.quiz);
+    this.quiz.shuffle();
+}
+Quiz.prototype.createQuiz = function(quizKey) {
+    return this.quizzes.createQuiz(quizKey);
+}
+Quiz.prototype.setQuiz = function(quizKey) {
+    if (this.quiz) {
+        delete this.quiz;
+    }
+    this.quiz = {};
+    this.quiz = this.createQuiz(quizKey);
+}
+Quiz.prototype.getQuizSelections = function() {
+    results = {};
+    results["inputOptions"] = this.quizzes.swalQuizSelect();
+    results["inputValue"] = this.quizKey;
+    results["inputPlaceholder"] = "Select Quiz";
+    return results;
 }
 Quiz.prototype.resetCountdown = function() {
     this.countdown = this.perQuestionTimeout / 1000;
@@ -104,8 +51,8 @@ Quiz.prototype.takeTurn = function() {
     return this.state;
 }
 Quiz.prototype.nextQuestion = function() {
-    if (this.questions.length == 0) return false;
-    if (this.qIndex < (this.questions.length - 1)) {
+    if (this.quiz.quizItems.length == 0) return false;
+    if (this.qIndex < (this.quiz.quizItems.length - 1)) {
         this.qIndex++;
         return true;
     }
@@ -114,7 +61,7 @@ Quiz.prototype.nextQuestion = function() {
 Quiz.prototype.getQuestionText = function() {
     let q = "";
     if (this.isValidQuestionIndex()) {
-        q = this.questions[this.qIndex].question.text;
+        q = this.quiz.getQuestionText(this.qIndex);
     } else {
         console.warn("Quiz.getQuestionText: qIndex out of range: ", this.qIndex);
     }
@@ -123,10 +70,7 @@ Quiz.prototype.getQuestionText = function() {
 Quiz.prototype.getChoicesText = function() {
     let results = [];
     if (this.isValidQuestionIndex()) {
-        let choices = this.questions[this.qIndex].choices;
-        for (let choice of choices) {
-            results.push(choice.text);
-        }
+        results = this.quiz.getChoicesText(this.qIndex);
     }
     return results;
 }
@@ -136,28 +80,28 @@ Quiz.prototype.getAnswerText = function() {
     if (isNaN(answerIndex)) {
         return answerText;
     }
-    answerText = this.questions[this.qIndex].choices[answerIndex].text;
+    answerText = this.quiz.quizItems[this.qIndex].choices[answerIndex].text;
     return answerText;
 }
 Quiz.prototype.getAnswerIndex = function() {
     let answerIndex = NaN;
     if (this.isValidAnswerIndex()) {
-        answerIndex = this.questions[this.qIndex].answerIndex;
+        answerIndex = this.quiz.quizItems[this.qIndex].answerIndex;
     }
     return answerIndex;
 }
 Quiz.prototype.isValidQuestionIndex = function() {
     return (this.qIndex >= 0 && 
-            this.qIndex < this.questions.length &&
-            this.questions.length >= 1) ? true : false;
+            this.qIndex < this.quiz.quizItems.length &&
+            this.quiz.quizItems.length >= 1) ? true : false;
 }
 Quiz.prototype.isValidAnswerIndex = function() {
     let result = false;
     if (this.isValidQuestionIndex()) {
-        let answerIndex = this.questions[this.qIndex].answerIndex;
+        let answerIndex = this.quiz.quizItems[this.qIndex].answerIndex;
         if (answerIndex >= 0 && 
-            answerIndex < this.questions[this.qIndex].choices.length &&
-            this.questions[this.qIndex].choices.length >= 1) {
+            answerIndex < this.quiz.quizItems[this.qIndex].choices.length &&
+            this.quiz.quizItems[this.qIndex].choices.length >= 1) {
                 result = true;
         } else {
             console.warn("Quiz.isValidAnswerIndex answerIndex invalid: ", answerIndex);
@@ -182,14 +126,9 @@ Quiz.prototype.incCorrect = function() {
 Quiz.prototype.getNumCorrect = function() {
     return this.numCorrect;
 }
-Quiz.prototype.length = function() { return this.questions.length };
+Quiz.prototype.length = function() { return this.quiz.quizItems.length };
 Quiz.prototype.getRandomPraise = function() {
-    let i = Math.floor(Math.random() * this.theme.praise.length);
-    return this.theme.praise[i].text;
-}
-Quiz.prototype.getRandomApprobation = function() {
-    let i = Math.floor(Math.random() * this.theme.approbation.length);
-    return this.theme.approbation[i].text;
+    return this.quiz.getRandomPraise();
 }
 Quiz.prototype.getResultTimeoutSecs = function() {
     return this.perResponseTimeout;
@@ -198,10 +137,14 @@ Quiz.prototype.getQuestionTimeoutSecs = function() {
     return this.perQuestionTimeout;
 }
 Quiz.prototype.getThemeName = function() {
-    return this.theme.name;
+    return this.quiz.quizName;
 }
 Quiz.prototype.getThemeImgSrc = function() {
-    return this.theme.imgSrc;
+    return this.quiz.getImgSrc();
+}
+  
+Quiz.prototype.shuffle = function() {
+    this.quiz.shuffle();
 }
 
 function UnitTestQuiz() {
