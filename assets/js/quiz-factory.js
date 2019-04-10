@@ -1521,7 +1521,7 @@ var testQuiz =
 //
 // TODO: As a future enhancement, it might be fun to add sound design to this object.
 
-var ThemedQuizCatalog = {
+var QuizCatalog = {
     "Sports": {
         "schemaType": "OpenTDB",
         // https://flic.kr/p/oi8DTK
@@ -1563,7 +1563,7 @@ var ThemedQuizCatalog = {
 //--------------------------------------------------------------------------//
 
 function QuizFactory() {}
-QuizFactory.prototype.quizzes = ThemedQuizCatalog;
+QuizFactory.prototype.quizzes = QuizCatalog;
 QuizFactory.prototype.getQuizKeys = function() {
     var list = [];
     for (let key in this.quizzes) {
@@ -1613,7 +1613,7 @@ QuizFactory.prototype.createQuiz = function(quizKey, numItems = 3) {
                 quiz = new NormalizedQuiz(schemaType, quizKey, quizItems, imgSrc, praise, numItems);
             }
         } else {
-            console.warn("QuizFactory.createQuiz: missing schemaType for ", quizKey);
+            console.warn("QuizFactory.createQuiz: unknown quiz: ", quizKey);
         }
     }
     return quiz;
@@ -1689,17 +1689,6 @@ NormalizedQuiz.prototype.reset = function() {
 NormalizedQuiz.prototype.getName = function() {
     return this.quizName;
 }
-NormalizedQuiz.prototype.getQuestionText = function(index) {
-    return this.quizItems[index].question.text;
-}
-NormalizedQuiz.prototype.getChoicesText = function(index) {
-    let results = [];
-    let choices = this.quizItems[index].choices;
-    for (let choice of choices) {
-        results.push(choice.text);
-    }
-    return results;
-}
 //
 // NB: Add new quiz schema types by extending this method.  UTBC is the
 //     target schema coming out of this method.
@@ -1736,6 +1725,8 @@ NormalizedQuiz.prototype.normalizeSchema = function(schemaType, quizItems) {
     }
 }
 NormalizedQuiz.prototype.shuffleItems = function() {
+    this.reset();   // shuffling implies reset
+
     // This is the Fisher-Yates shuffle.
     // https://en.wikipedia.org/wiki/Fisher-Yates_shuffle
     for (let i = this.quizItems.length - 1; i > 0; i--) {
@@ -1743,16 +1734,18 @@ NormalizedQuiz.prototype.shuffleItems = function() {
         [this.quizItems[i], this.quizItems[j]] = [this.quizItems[j], this.quizItems[i]]; // swap elements
     }
 }
-NormalizedQuiz.prototype.getQuestionHtml = function() {
+NormalizedQuiz.prototype.getQuestionHtml = function(quizItem) {
     let result = undefined;
-    let quizItem = this.quizItems[this.index];
+    // console.log("qi = ", quizItem);
+    // console.log("qi.question = ", quizItem.question);
+    // console.log("qi.question.text = ", quizItem.question.text);
     result = `<span class="question">${quizItem.question.text}</span>`;
     return result;
 }
-NormalizedQuiz.prototype.getChoicesHtml = function() {
+NormalizedQuiz.prototype.getChoicesHtml = function(quizItem) {
     let results = [];
-    let choices = this.quizItems[this.index].choices;
-    let answerIndex = this.quizItems[this.index].answerIndex;
+    let choices = quizItem.choices;
+    let answerIndex = quizItem.answerIndex;
     for (let ci in choices) {
         let choiceHtml = undefined;
         if (ci == answerIndex) {
