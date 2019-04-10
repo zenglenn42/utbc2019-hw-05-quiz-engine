@@ -121,6 +121,16 @@ main p#main-label {
   padding-top: 0;
 }
 
+main #time-remaining {
+  background-color: white;
+  padding: 0 0.5em;
+  border-radius: 0.2em;
+  color: black;
+  font-family: sans-serif;
+  font-size: 1em;
+  margin-left: 1em;
+}
+
 main #word-to-guess-prompt {
   background-color: white;
   padding: 0 0.5em;

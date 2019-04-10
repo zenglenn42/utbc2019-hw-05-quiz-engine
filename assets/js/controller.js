@@ -1,5 +1,5 @@
-function QuizController(themeNameId, timeRemainingId, questionId, choicesId, responseId, resultsId) {
-    this.themeNameId = document.getElementById(themeNameId);
+function QuizController(timeRemainingId, questionId, choicesId, responseId, resultsId) {
+    // this.themeNameId = document.getElementById(themeNameId);
     this.timeRemainingId = document.getElementById(timeRemainingId);
     this.questionId = document.getElementById(questionId);
     this.choicesId = document.getElementById(choicesId);
@@ -10,6 +10,11 @@ function QuizController(themeNameId, timeRemainingId, questionId, choicesId, res
     // this.nextQuestionInterval = undefined;
     // this.countdownInterval = undefined;
     this.addMenuEventListeners();
+    this.setTimeRemaining();
+}
+
+QuizController.prototype.setTimeRemaining = function() {
+    this.timeRemainingId.textContent = this.qm.getCountdown();
 }
 
 QuizController.prototype.addMenuEventListeners = function() {

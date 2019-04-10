@@ -54,7 +54,7 @@
     <main id="main">
       <div class="container" id="main-container">
         <p class="row" id="main-label">
-          Time Remaining: <span id="time-remaining"></span> Seconds
+          Time Remaining: <span id="time-remaining"></span>
         </p>
         <h3 id="question">question goes here</h3>
         <div id="choices">choices</div>
@@ -64,7 +64,13 @@
     </main>
     <script type="text/javascript">
       $(document).ready(function() {
-        var qc = new QuizController();
+        var qc = new QuizController(
+          "time-remaining",
+          "qustion",
+          "choices",
+          "response",
+          "results"
+        );
         // gameController.play();
       });
     </script>
