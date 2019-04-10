@@ -67,8 +67,8 @@ I knocked out the guts of the quiz [json](https://github.com/zenglenn42/utbc2019
 
 ![alt tag](docs/img/model-unit-test.png)
 
-![alt tag](docs/img/model.png)
-![alt tag](docs/img/controller.png)
+![alt tag](docs/img/model-controller.png)
+(How I'm feeling about the model and controller in this project.)
 
 The controller was another story. It felt more like a street fight and had a ton of callbacks to manage both input clicks and various interval timers. First I stood up a primitive user interface:
 
@@ -92,14 +92,14 @@ The time invested with sweetalerts in a previous project allowed me to leverage 
 
 As with my [Word Stop](https://github.com/zenglenn42/utbc2019-hw-03-wordgame/blob/fb11d26422f2a119c03826527539e3fdb5661f91/assets/js/lexicon.js#L36) game, I see all sorts of potential for a data-driven design, supporting various quizzes with unique visual and audio themes.
 
-Given that I'm learning about ajax and api endpoints, I wonder if there are json or xml standards already out there for this kind of data? Perhaps my little quiz engine could be designed to tap into a wealth of content already out there.
+Given that I'm learning about ajax and api endpoints, I wonder if there are [json or xml standards already out](https://quizlet.com/api/2.0/docs) there for this kind of data?  Perhaps my little quiz engine could be designed to tap into a wealth of content already out there.
 
 ![alt tag](docs/img/blue-sky.jpg)
 ([Image](https://flic.kr/p/24B2fo9) courtesy Gary Campbell-Hall, CC BY 2.0)
 
 The other blue sky thought is how fun it would be to introduce some of the cool learning models out there that look at memory attenuation and how mastery and learning efficiency can be improved by repeating a question just at the point we have to struggle a little bit to recall it.
 
-I've played with some of these so called 'spaced repetition systems' but have always felt disappointment at the lack of curation for the quiz decks that drive them and that get thrown up on the web. There's no way to gauage the quality of 3rd party content, to easily flag errors, to see a history of changes over time, to contribute suggestions such that the content becomes better and more authoratative over time.
+I've played with some of these so called '[spaced repetition systems](https://en.wikipedia.org/wiki/Spaced_repetition)' but have always felt disappointment at the lack of curation for the quiz decks that drive them and that get thrown up on the web.  There's no way to gauage the quality of 3rd party content, to easily flag errors, to see a history of changes over time, to contribute suggestions such that the content becomes better and more authoratative over time.
 
 Coming up with a good deck of cards is very time consuming and really good decks should rise above the others and be evangelized and possibly opened sourced for community maintenance. Fortunately a well understood model exists for this ... up-and-down voting, likes, and stars on social media.
 
