@@ -8,7 +8,7 @@ Users answer a series of multiple choice questions in the presence of a count-do
 
 I've got a responsive UI plugged in, leveraged from the last couple projects.
 
-![alt tag](docs/img/model-unit-test.png)
+![alt tag](docs/img/qt-ui.png)
 
 I've refactored the model to cleanly support OpenTDB (and other schemas going forward).  But this requires me to rework the controller.
 
