@@ -6,6 +6,12 @@ Users answer a series of multiple choice questions in the presence of a count-do
 
 # Implementation Details
 
+I've got a responsive UI plugged in, leveraged from the last couple projects.
+
+![alt tag](docs/img/model-unit-test.png)
+
+I've refactored the model to cleanly support OpenTDB (and other schemas going forward).  But this requires me to rework the controller.
+
 I did some googling and discovered there is indeed an endpoint called the [Open Trivia Database](https://opentdb.com) (OpenTDB) which serves up trivia questions in 24 categories as arrays of downloadable json. A typical ajax queryUrl for 40 multiple choice questions in the 'Comics' category looks like this:
 
 ```
