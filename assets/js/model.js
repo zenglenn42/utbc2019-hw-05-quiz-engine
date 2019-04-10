@@ -1,19 +1,22 @@
 
-function QuizModel(quizKey = "Test") {
+function QuizModel(quizKey = "Test", numItems = 3) {
     this.factory = new QuizFactory();
-    this.quiz = this.factory.createQuiz(quizKey);
     this.questionTimeoutMsec = 5000;
-    this.responseTimeoutMsec = 2000;
-    this.numCorrect = 0;
+    this.responseTimeoutMsec = 2000;    // Must come before setQuiz()!
+    this.setQuiz(quizKey, numItems);    // Establishes this.quiz
+}
+QuizModel.prototype.setQuiz = function(quizKey, numItems) {
+    if (this.quiz) delete this.quiz;    // garbage collection
+    this.quiz = this.factory.createQuiz(quizKey, numItems);
     this.reset();
 }
 QuizModel.prototype.reset = function() {
     this.numCorrect = 0;
-    this.quiz.reset();
+    if (this.quiz) this.quiz.reset();
     this.countdown = this.getQuestionTimeoutSec();
     this.state = "playing";
 }
-QuizModel.prototype.getQuizSelections = function() {
+QuizModel.prototype.getSwalQuizSelections = function() {
     results = {};
     results["inputOptions"] = this.factory.swalQuizSelect();
     results["inputValue"] = this.quiz.getName();
@@ -26,18 +29,8 @@ QuizModel.prototype.getCountdown = function() {
 QuizModel.prototype.resetCountdown = function() {
     this.countdown = this.getQuestionTimeoutSec();
 }
-QuizModel.prototype.takeTurn = function() {
-    if (this.state === "playing") {
-        if (!this.quiz.hasMoreItems()) {
-            this.state = "done";
-        }
-    }
-    return this.state;
-}
-QuizModel.prototype.incCorrect = function() {
-    if (this.state === "playing") {
+QuizModel.prototype.incNumCorrect = function() {
         this.numCorrect++;
-    }
 }
 QuizModel.prototype.getNumCorrect = function() {
     return this.numCorrect;
@@ -52,7 +45,7 @@ QuizModel.prototype.getQuestionTimeoutMsec = function() {
     return this.questionTimeoutMsec;
 }
 
-function UnitTestQuiz() {
+function UnitTestQuizModel() {
     qm = new QuizModel("Test");
     console.log("quiz name: ", qm.quiz.getName());
     console.log("question timeout sec: ", qm.getQuestionTimeoutSec());
@@ -69,6 +62,7 @@ function UnitTestQuiz() {
         console.log("question html: ", qHtml);
         console.log("choices html: ", cHtml);
     }
+    console.log("Testing shuffling of quiz items ...");
     qm.quiz.shuffleItems();
     while (qm.quiz.hasMoreItems()) {
         let qi = qm.quiz.getNextItem();
@@ -78,8 +72,7 @@ function UnitTestQuiz() {
         console.log("question html: ", qHtml);
         console.log("choices html: ", cHtml);
     }
-    delete qm.quiz;
-    qm.quiz = qm.factory.createQuiz("Movies", 4);
+    qm.setQuiz("Movies", 4);
     while (qm.quiz.hasMoreItems()) {
         let qi = qm.quiz.getNextItem();
         let qHtml = qm.quiz.getQuestionHtml(qi);
@@ -89,5 +82,6 @@ function UnitTestQuiz() {
         console.log("choices html: ", cHtml);
     }
     img = qm.quiz.getImgSrc();
-    console.log("img = ", img);
+    console.log("img: ", img);
+    console.log("sweetalert select box input: ", qm.getSwalQuizSelections());
 }
