@@ -1,5 +1,6 @@
 
 function QuizModel(quizKey = "Test", numItems = 3) {
+    this.name = "Quiz Time ⏰";
     this.factory = new QuizFactory();
     this.questionTimeoutMsec = 5000;
     this.responseTimeoutMsec = 2000;    // Must come before setQuiz()!
