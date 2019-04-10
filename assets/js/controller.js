@@ -14,14 +14,24 @@ function QuizController(themeNameId, timeRemainingId, questionId, choicesId, res
 
 QuizController.prototype.addMenuEventListeners = function() {
     
-    // let hintId = document.getElementById("navbar-btn");
-    // hintId.addEventListener('click', this.getHintMenuEventCallback(), false);
-
-    // let statsId = document.getElementById("stats-link");
-    // statsId.addEventListener('click', this.getStatsMenuEventCallback(),false);
+    let playId = document.getElementById("navbar-btn");
+    playId.addEventListener('click', this.getPlayMenuEventCallback(), false);
 
     let helpId = document.getElementById("help-link");
     helpId.addEventListener('click', this.getHelpMenuEventCallback(), false);
+}
+
+QuizController.prototype.getPlayMenuEventCallback = function() {
+    let that = this;
+    function menuCallback(e) {
+        if (that.qm.state == "playing") {
+            console.log("QuizController.getPlayMenuEventCallback: playing");
+        } else {
+            console.log("QuizController.getPlayMenuEventCallback: !playing");
+        }
+        // that.setFocus();
+    }
+    return menuCallback;
 }
 
 QuizController.prototype.getHelpMenuEventCallback = function() {
