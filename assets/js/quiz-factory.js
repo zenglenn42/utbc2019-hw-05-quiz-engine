@@ -1743,17 +1743,17 @@ NormalizedQuiz.prototype.getQuestionHtml = function(quizItem) {
     return result;
 }
 NormalizedQuiz.prototype.getChoicesHtml = function(quizItem) {
-    let results = [];
+    let results = "";
     let choices = quizItem.choices;
     let answerIndex = quizItem.answerIndex;
     for (let ci in choices) {
         let choiceHtml = undefined;
         if (ci == answerIndex) {
-            choiceHtml = `<button class="choice" answer="true">${choices[ci].text}</button>`;
+            choiceHtml = `<button class="btn-choice" answer="true">${choices[ci].text}</button>`;
         } else {
-            choiceHtml = `<button class="choice">${choices[ci].text}</button>`;
+            choiceHtml = `<button class="btn-choice">${choices[ci].text}</button>`;
         }
-        results.push(choiceHtml);
+        results += `<p class="para-choice">${choiceHtml}</p>`;
     }
     return results;
 }

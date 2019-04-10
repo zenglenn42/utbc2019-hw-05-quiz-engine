@@ -1,10 +1,14 @@
 
 function QuizModel(quizKey = "Test", numItems = 3) {
+    this.name = "Quiz Time ⏰";
     this.factory = new QuizFactory();
     this.questionTimeoutMsec = 5000;
     this.responseTimeoutMsec = 2000;    // Must come before setQuiz()!
     this.setQuiz(quizKey, numItems);    // Establishes this.quiz
 }
+QuizModel.prototype.helpText = "\
+Match your wits against the clock in this timed trivia game.\
+";
 QuizModel.prototype.setQuiz = function(quizKey, numItems) {
     if (this.quiz) delete this.quiz;    // garbage collection
     this.quiz = this.factory.createQuiz(quizKey, numItems);
