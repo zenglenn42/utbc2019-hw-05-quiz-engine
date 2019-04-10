@@ -29,11 +29,23 @@ QuizController.prototype.addMenuEventListeners = function() {
 QuizController.prototype.getPlayMenuEventCallback = function() {
     let that = this;
     function menuCallback(e) {
-        if (that.qm.state == "playing") {
-            console.log("QuizController.getPlayMenuEventCallback: playing");
-        } else {
-            console.log("QuizController.getPlayMenuEventCallback: !playing");
+        while (that.qm.quiz.hasMoreItems()) {
+            let qi = that.qm.quiz.getNextItem();
+
+            let qHtml = that.qm.quiz.getQuestionHtml(qi);
+            that.questionId.innerHTML = qHtml;
+
+            let cHtml = that.qm.quiz.getChoicesHtml(qi);
+            that.choicesId.innerHTML = cHtml;
+
+            console.log("question html: ", qHtml);
+            console.log("choices html: ", cHtml);
         }
+        // if (that.qm.state == "playing") {
+        //     console.log("QuizController.getPlayMenuEventCallback: playing");
+        // } else {
+        //     console.log("QuizController.getPlayMenuEventCallback: !playing");
+        // }
         // that.setFocus();
     }
     return menuCallback;

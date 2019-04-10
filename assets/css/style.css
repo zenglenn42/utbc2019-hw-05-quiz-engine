@@ -131,6 +131,18 @@ main #time-remaining {
   margin-left: 1em;
 }
 
+main .btn-choice {
+  display: block;
+  margin: 0 auto;
+  width: 75%;
+}
+
+@media screen and (max-width: 640px) {
+  main .btn-choice {
+    width: 90%;
+  }
+}
+
 main #word-to-guess-prompt {
   background-color: white;
   padding: 0 0.5em;
