@@ -6,6 +6,17 @@ Users answer a series of multiple choice questions in the presence of a count-do
 
 # Implementation Details
 
+## Can we talk?
+
+![alt tag](docs/img/can-we-talk.png)
+
+So I got the basic MVP behavior working with my warm-puppy, quiz item test schema.  But when I went to scale up with some real input data from the OpenTDB, the controller code started fighting me.  He talked a good game, but he buckled under the pressure of scale.  I want a badass, but he's gotta be able to wear a tuxedo too.
+
+The falt is all mine.  Truth be told, I shot from the hip rather than breaking the controller task down into a cohesive set of user stories.  I'm not saying I've learned the error of my ways, but I have distilled the controller down to a pretty defensible UML activity diagram.  With that in mind, I'm gonna take another run at the controller.  Third time's the charms. ;-)
+
+![alt tag](docs/img/qt-act-dg.png)
+
+
 I've got a responsive UI plugged in, leveraged from the last couple projects.
 
 ![alt tag](docs/img/qt-ui.png)
