@@ -14,7 +14,7 @@ So I got the basic MVP behavior working with my warm-puppy, quiz item test schem
 
 ![alt tag](docs/img/tuxedo.png)
 
-The falt is all mine.  Truth be told, I shot from the hip rather than breaking the controller task down into a cohesive set of user stories.  I'm not saying I've learned the error of my ways, but I have distilled the controller down to a pretty defensible UML activity diagram.  With that in mind, I'm gonna take another run at the controller.  Third time's the charms. ;-)
+The falt is all mine.  Truth be told, I shot from the hip rather than breaking the controller task down into a cohesive set of user stories.  I'm not saying I've learned the error of my ways, but I have distilled the controller down to a pretty defensible UML activity diagram.  With that in mind, I'm gonna take another run at the controller.  Third time's the charm. ;-)
 
 ![alt tag](docs/img/qt-act-dg.png)
 
