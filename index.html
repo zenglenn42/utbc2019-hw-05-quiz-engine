@@ -52,7 +52,7 @@
       </nav>
     </header>
     <main id="main">
-      <div class="container" id="main-container">
+      <div class="container" id="main-container" style="visibility: hidden;">
         <p class="row" id="main-label">
           Time Remaining: <span id="time-remaining"></span>
         </p>
@@ -65,6 +65,7 @@
     <script type="text/javascript">
       $(document).ready(function() {
         var qc = new QuizController(
+          "main-container",
           "time-remaining",
           "question",
           "choices",
