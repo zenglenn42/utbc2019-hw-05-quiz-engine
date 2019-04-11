@@ -10,7 +10,7 @@ Users answer a series of multiple choice questions in the presence of a count-do
 
 ![alt tag](docs/img/can-we-talk.png)
 
-So I got the basic MVP behavior working with my warm-puppy, quiz item test schema.  But when I went to scale up with some real input data from the OpenTDB, the controller code started fighting me.  He talked a good game, but he buckled under the pressure of scale.  I want a badass, but he's gotta be able to wear a tuxedo too.
+So I got the basic MVP behavior working with my warm-puppy, quiz item test schema.  But when I went to scale up with some real input data from the OpenTDB, the controller code started fighting me.  He talked a good game, but he buckled under the pressure of scale.  I want an expedient badass, but he's gotta be able to wear a tuxedo too.
 
 ![alt tag](docs/img/tuxedo.png)
 
