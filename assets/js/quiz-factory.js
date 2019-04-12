@@ -1749,7 +1749,7 @@ NormalizedQuiz.prototype.getChoicesHtml = function(quizItem) {
     for (let ci in choices) {
         let choiceHtml = undefined;
         if (ci == answerIndex) {
-            choiceHtml = `<button class="btn btn-choice btn-primary" answer="true">${choices[ci].text}</button>`;
+            choiceHtml = `<button id="answer" class="btn btn-choice btn-primary">${choices[ci].text}</button>`;
         } else {
             choiceHtml = `<button class="btn btn-choice btn-primary">${choices[ci].text}</button>`;
         }
