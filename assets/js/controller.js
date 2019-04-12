@@ -57,14 +57,6 @@ QuizController.prototype.getPlayMenuEventCallback = function() {
             that.respondingToAnswer = true;
             that.enableClicksAndTimers();
         }
-        // while (that.qm.quiz.hasMoreItems() && !that.respondingToAnswer) {
-        //     console.log("in play cb loop");
-        //     let qi = that.qm.quiz.getNextItem();
-        //     that.displayQuizItem(qi);
-        //     that.respondingToAnswer = true;
-        //     that.enableClicksAndTimers();
-        //     // that.disableClicksAndTimers();
-        // }
     }
     return menuCallback;
 }
