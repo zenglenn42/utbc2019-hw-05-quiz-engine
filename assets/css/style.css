@@ -35,7 +35,8 @@ a.navbar-brand {
 
 #quiz-select {
   background: #007bff;
-  border: 1px solid #777;
+  /* border: 1px solid #777; */
+  border: 1px solid white;
   color: #eee;
   font-family: sans-serif;
   font-size: 0.8em;
