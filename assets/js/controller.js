@@ -6,8 +6,6 @@ function QuizController(mainContainerId, timeRemainingId, questionId, choicesId,
     this.responseId = document.getElementById(responseId);
     this.resultsId = document.getElementById(resultsId);
     this.qm = new QuizModel();
-    // this.choiceListenerCallback = undefined;
-    // this.nextQuestionInterval = undefined;
     // this.countdownInterval = undefined;
     this.addMenuEventListeners();
     this.addQuizSelectionList();
@@ -50,6 +48,7 @@ QuizController.prototype.addMenuEventListeners = function() {
 QuizController.prototype.getPlayMenuEventCallback = function() {
     let that = this;
     function menuCallback(e) {
+        that.reset();
         that.unhideDisplay();
         if (that.qm.quiz.hasMoreItems() && !that.respondingToAnswer) {
             let qi = that.qm.quiz.getNextItem();
@@ -86,6 +85,7 @@ QuizController.prototype.getClickCallback = function() {
         that.disableClicksAndTimers();
         if (this.getAttribute('id') == "answer") {
             that.congratulate();
+            that.qm.incNumCorrect();
         } else {
             console.log("wrong");
             that.castigate();
@@ -108,7 +108,12 @@ QuizController.prototype.getPauseCallback = function() {
             that.respondingToAnswer = true;
             that.enableClicksAndTimers();
         } else {
-            that.reset();   // Get ready for replay or new quiz selected.
+            that.hideDisplay();
+            swal({
+                type: 'success',
+                html: `You got ${that.qm.getNumCorrect()} of ${that.qm.getNumItems()} correct.`,
+                timer: 5000
+            }).then(this.pauseCallback);
         }
     }
     return innerCallback;

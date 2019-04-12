@@ -15,6 +15,9 @@ QuizModel.prototype.setQuiz = function(quizKey, numItems) {
     this.quiz = this.factory.createQuiz(quizKey, numItems);
     this.reset();
 }
+QuizModel.prototype.getNumItems = function() {
+    return this.quiz.numItems;
+}
 QuizModel.prototype.reset = function() {
     this.numCorrect = 0;
     if (this.quiz) this.quiz.reset();
