@@ -60,6 +60,11 @@ QuizController.prototype.getPlayMenuEventCallback = function() {
     return menuCallback;
 }
 
+QuizController.prototype.showAnswer = function() {
+    let answerID = document.getElementById("answer");
+    answerID.setAttribute("style", "border: 7px solid orange");
+}
+
 QuizController.prototype.showHelp = function() {
     let helpTitle = `${this.qm.name}`;
     let helpStr = this.qm.helpText;

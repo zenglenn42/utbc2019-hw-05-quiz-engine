@@ -9,7 +9,7 @@ function QuizModel(quizKey = "Test", numItems = 3) {
 QuizModel.prototype.helpText = "\
 Match your wits against the clock in this timed trivia game.\
 <br><hr>\
-Select a quiz category and press Play";
+Select a quiz category above and press Play";
 QuizModel.prototype.setQuiz = function(quizKey, numItems) {
     if (this.quiz) delete this.quiz;    // garbage collection
     this.quiz = this.factory.createQuiz(quizKey, numItems);
