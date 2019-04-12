@@ -1,9 +1,9 @@
 
-function QuizModel(quizKey = "Test", numItems = 3) {
+function QuizModel(quizKey = "Movies", numItems = 10) {
     this.name = "Quiz Time ⏰";
     this.factory = new QuizFactory();
-    this.questionTimeoutMsec = 5000;
-    this.responseTimeoutMsec = 2000;    // Must come before setQuiz()!
+    this.questionTimeoutMsec = 10000;   
+    this.pauseTimeoutMsec = 2750;// Must come before setQuiz()!
     this.setQuiz(quizKey, numItems);    // Establishes this.quiz
 }
 QuizModel.prototype.helpText = "\
@@ -21,8 +21,7 @@ QuizModel.prototype.getNumItems = function() {
 QuizModel.prototype.reset = function() {
     this.numCorrect = 0;
     if (this.quiz) this.quiz.reset();
-    this.countdown = this.getQuestionTimeoutSec();
-    this.state = "playing";
+    this.resetCountdown();
 }
 QuizModel.prototype.getSwalQuizSelections = function() {
     results = {};
@@ -34,6 +33,14 @@ QuizModel.prototype.getSwalQuizSelections = function() {
 QuizModel.prototype.getCountdown = function() {
     return this.countdown;
 }
+QuizModel.prototype.decCountdown = function() {
+    if (this.countdown > 0) {
+        this.countdown--;
+    } else {
+        console.log("QuizModel.decCountdown() guard logic prevented negative countdown value!");
+    }
+    return this.countdown;
+}
 QuizModel.prototype.resetCountdown = function() {
     this.countdown = this.getQuestionTimeoutSec();
 }
@@ -43,22 +50,20 @@ QuizModel.prototype.incNumCorrect = function() {
 QuizModel.prototype.getNumCorrect = function() {
     return this.numCorrect;
 }
-QuizModel.prototype.getResponseTimeoutMsec = function() {
-    return this.responseTimeoutMsec;
-}
 QuizModel.prototype.getQuestionTimeoutSec = function() {
     return this.questionTimeoutMsec / 1000;
 }
 QuizModel.prototype.getQuestionTimeoutMsec = function() {
     return this.questionTimeoutMsec;
 }
-
+QuizModel.prototype.getPauseTimeoutMsec = function() {
+    return this.pauseTimeoutMsec;
+}
 function UnitTestQuizModel() {
     qm = new QuizModel("Test");
     console.log("quiz name: ", qm.quiz.getName());
     console.log("question timeout sec: ", qm.getQuestionTimeoutSec());
     console.log("question timeout msec: ", qm.getQuestionTimeoutMsec());
-    console.log("response timeout msec: ", qm.getResponseTimeoutMsec());
     console.log("getCountdown: ", qm.getCountdown());
     let img = qm.quiz.getImgSrc();
     console.log("img = ", img);

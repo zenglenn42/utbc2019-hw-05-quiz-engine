@@ -1547,12 +1547,13 @@ var QuizCatalog = {
         // 1995 Comic Strip Classic Postcards
         "imgSrc": "assets/img/comics.jpg",
         "quiz": comicsQuiz
-    },
-    "Test": {
-        "schemaType": "UTBC",
-        "imgSrc": "assets/img/default-theme.jpg",
-        "quiz": testQuiz
     }
+    // },
+    // "Test": {
+    //     "schemaType": "UTBC",
+    //     "imgSrc": "assets/img/default-theme.jpg",
+    //     "quiz": testQuiz
+    // }
 };
 
 //--------------------------------------------------------------------------//
@@ -1650,7 +1651,7 @@ function NormalizedQuiz(schemaType, quizName, quizItems, imgSrc, praise, numItem
     }
     this.quizItems.length = this.numItems;
     this.index = 0;
-    this.shuffleOnReset = false;
+    this.shuffleOnReset = true;
 }
 NormalizedQuiz.prototype.defaultPraise = [
     {"text": "Nice job."},
@@ -1725,7 +1726,7 @@ NormalizedQuiz.prototype.normalizeSchema = function(schemaType, quizItems) {
     }
 }
 NormalizedQuiz.prototype.shuffleItems = function() {
-    this.reset();   // shuffling implies reset
+    // this.reset();   // shuffling implies reset
 
     // This is the Fisher-Yates shuffle.
     // https://en.wikipedia.org/wiki/Fisher-Yates_shuffle

@@ -101,6 +101,8 @@ QuizController.prototype.getPauseCallback = function() {
         // Enable the next quiz item to be fetched back in
         // the 'Play' callback.
         that.respondingToAnswer = false;
+        that.qm.resetCountdown();
+        that.setTimeRemaining();
         console.log("getPauseCallback: enabling loop");
         if (that.qm.quiz.hasMoreItems() && !that.respondingToAnswer) {
             let qi = that.qm.quiz.getNextItem();
@@ -111,8 +113,8 @@ QuizController.prototype.getPauseCallback = function() {
             that.hideDisplay();
             swal({
                 type: 'success',
-                html: `You got ${that.qm.getNumCorrect()} of ${that.qm.getNumItems()} correct.`,
-                timer: 5000
+                html: `You got ${that.qm.getNumCorrect()} of ${that.qm.getNumItems()} correct.<br>
+                    <hr>Press 'Play' to replay or select a new quiz.`,
             }).then(this.pauseCallback);
         }
     }
@@ -125,7 +127,7 @@ QuizController.prototype.getShowAnswerPauseCallback = function() {
         console.log("that = ", that);
         // Pause for an addition period to let player view
         // highlighted correct answer after alert has disappeared.
-        setTimeout(that.pauseCallback, 2500);
+        setTimeout(that.pauseCallback, that.qm.getPauseTimeoutMsec());
     }
     return innerCallback;
 }
@@ -136,7 +138,7 @@ QuizController.prototype.congratulate = function() {
     swal({
         type: 'success',
         html: praise,
-        timer: 2000
+        timer: 2200
     }).then(this.pauseCallback);
 }
 
@@ -169,6 +171,8 @@ QuizController.prototype.disableClicks = function() {
 
 QuizController.prototype.oneSecTimerCallback = function() {
     console.log("1 sec");
+    this.qm.decCountdown();
+    this.setTimeRemaining();
 }
 
 QuizController.prototype.questionTimerCallback = function() {
@@ -182,7 +186,7 @@ QuizController.prototype.questionTimerCallback = function() {
 
 QuizController.prototype.enableTimers = function() {
     this.oneSecInterval = setInterval(this.oneSecTimerCallback.bind(this), 1000);
-    this.questionInterval = setInterval(this.questionTimerCallback.bind(this), 5000);
+    this.questionInterval = setInterval(this.questionTimerCallback.bind(this), this.qm.getQuestionTimeoutMsec());
 }
 
 QuizController.prototype.disableTimers = function() {
