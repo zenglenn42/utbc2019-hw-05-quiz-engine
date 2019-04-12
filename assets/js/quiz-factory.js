@@ -1,3 +1,494 @@
+var musicQuiz = {
+    // The schema and content for this JSON comes from the Open Trivia Database
+    // https://opentdb.com
+    //
+    // https://opentdb.com/api.php?amount=40&category=12&difficulty=medium&type=multiple
+
+    "response_code": 0,
+    "results": [
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Madeon",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Daft Punk ",
+                "Disclosure",
+                "David Guetta"
+            ],
+            "question": "What French artist/band is known for playing on the midi instrument &quot;Launchpad&quot;?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Focus",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Pilot",
+                "Rush",
+                "AC/DC"
+            ],
+            "question": "Who had a 1973 hit with the song &#039;Hocus Pocus&#039;?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Air",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Fire",
+                "Earth",
+                "Water"
+            ],
+            "question": "Which French duo had UK hits in 1998 with the songs &#039;Sexy Boy&#039;, &#039;Kelly Watch The Stars&#039; &amp; &#039;All I Need&#039;?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "The Eagles",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Fools Gold",
+                "The Doobie Brothers",
+                "Fleetwood Mac"
+            ],
+            "question": "Which band had hits in 1975 with the songs, &#039;One Of These Nights&#039; &amp; &#039;Lyin Eyes&#039;?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "The Jets",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "DeBarge",
+                "The Jacksons",
+                "The Cover Girls"
+            ],
+            "question": "Which American family band had a 1986 top 10 hit with the song &#039;Crush On You&#039;?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "The Tornados",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "The Ventures",
+                "The Spotnicks",
+                "The Tremeloes"
+            ],
+            "question": "Who had a US and UK number 1 hit in 1962 with the instrumental, &#039;Telstar&#039;?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "88",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "24",
+                "12",
+                "96"
+            ],
+            "question": "Typically, how many keys are on a piano?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Syd Barrett",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "John Lennon",
+                "David Gilmour",
+                "Floyd"
+            ],
+            "question": "Who is the Pink Floyd song &quot;Shine On You Crazy Diamond&quot; written about?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Def Leppard",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "The Beatles",
+                "Lynyrd Skynyrd",
+                "Foreigner"
+            ],
+            "question": "Which popular rock band has a one-armed drummer?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Aloe Blacc",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "John Legend",
+                "CeeLo Green",
+                "Pharrell Williams"
+            ],
+            "question": "Which singer was featured in Swedish producer Avicii&#039;s song &quot;Wake Me Up&quot;?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "MGMT",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Passion Pit",
+                "Phoenix",
+                "Franz Ferdinand"
+            ],
+            "question": "Which band released songs such as &quot;Electric Feel&quot;, &quot;Kids&quot;, and &quot;Time to Pretend&quot;?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Trance",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "House",
+                "Drum and Bass",
+                "Dubstep"
+            ],
+            "question": "What genre of EDM is the Dutch DJ, musician, and remixer Armin van Buuren most well-known for?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Ascent",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Monody",
+                "Windfall",
+                "Infinite Power!"
+            ],
+            "question": "Which song is not by TheFatRat?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Miami",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "New York",
+                "Detroit",
+                "Atlanta"
+            ],
+            "question": "In which city did American rap producer DJ Khaled originate from?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Somebody to Love",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Under Pressure",
+                "Flash",
+                "Bohemian Rhapsody"
+            ],
+            "question": "Which Queen song was covered by Brittany Murphy in the 2006 film &quot;Happy Feet&quot;?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Canada",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "United States",
+                "Australia",
+                "United Kingdom"
+            ],
+            "question": "EDM record label Monstercat is based in which country?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Skrillex",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Diplo",
+                "Jillionaire",
+                "Walshy Fire"
+            ],
+            "question": "Which of these artists has NOT been a member of dancehall group Major Lazer?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Daniel Johns",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Ben Gillies",
+                "Chris Joannou",
+                ""
+            ],
+            "question": "Who is the lead singer of Silverchair?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "4/4",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "1/2",
+                "8/12",
+                "2/4"
+            ],
+            "question": "What&#039;s the most common time signature for rock songs?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "MGMT",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "MSTRKRFT",
+                "STRFKR",
+                "SBTRKT"
+            ],
+            "question": "Which of these is the name of an American psychedelic rock band formed in 2002 by Benjamin Goldwasser and Andrew VanWyngarden?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Shine On You Crazy Diamond",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Wish You Were Here",
+                "Have A Cigar",
+                "Welcome to the Machine"
+            ],
+            "question": "Pink Floyd made this song for their previous lead singer Syd Barrett.",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "The Wall",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "The Dark Side of the Moon",
+                "Wish You Were Here",
+                "Animals"
+            ],
+            "question": "Which one of these Pink Floyd albums were also a movie?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Sweden",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Germany",
+                "United States",
+                "Finland"
+            ],
+            "question": "Which country does the power metal band &quot;Sabaton&quot; originate from?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "The Naked and Famous",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Cut Copy",
+                "Empire of the Sun",
+                "Tame Impala"
+            ],
+            "question": "Which of these bands are NOT from Australia?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Sukiyaki",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Takoyaki",
+                "Sushi",
+                "Oden"
+            ],
+            "question": "What was the title of Sakamoto Kyu&#039;s song &quot;Ue o Muite Arukou&quot; (I Look Up As I Walk) changed to in the United States?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Matt Bellamy",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Dominic Howard",
+                "Thom Yorke",
+                "Jonny Greenwood"
+            ],
+            "question": "Who is the frontman of Muse?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "P!nk",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Mitis",
+                "Adam lambert",
+                "Koven"
+            ],
+            "question": "What musician made the song &quot;Fuckin` Perfect&quot; in 2010?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Andreas Vollenweider",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Jean-Michel Jarre",
+                "Bing Crosby",
+                "Enya"
+            ],
+            "question": "Who recorded the album called &quot;Down to the Moon&quot; in 1986?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Grammys",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Too Good",
+                "Faithful",
+                "Pop Style"
+            ],
+            "question": "Which song in Drake&#039;s &quot;Views&quot; features Future?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Free Willy",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Sleepless in Seattle",
+                "Men in Black",
+                "Bad Boys"
+            ],
+            "question": "In what film was the Michael Jackson song &quot;Will You Be There&quot; featured?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Bionicle",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Hero Factory",
+                "Ben 10 Alien Force",
+                "Star Wars"
+            ],
+            "question": "Cryoshell, known for &quot;Creeping in My Soul&quot; did the advertising music for what Lego Theme?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "+44",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Box Car Racer",
+                "Blink-182",
+                "Angels &amp; Airwaves"
+            ],
+            "question": "Which of the following bands is Tom DeLonge not a part of?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "2012",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "2015",
+                "2010",
+                "1967"
+            ],
+            "question": "When did Tame Impala release their second album?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Michael Stipe",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Chris Martin",
+                "Thom Yorke",
+                "George Michael"
+            ],
+            "question": "Who was the lead singer and frontman of rock band R.E.M?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "U2",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Radiohead",
+                "Coldplay",
+                "Bon Jovi"
+            ],
+            "question": "Which of these bands was a featuring artist in Compton rapper Kendrick Lamar&#039;s 2017 album, &quot;DAMN.&quot;?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Plastic Beach",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Demon Days",
+                "Humanz",
+                "The Fall"
+            ],
+            "question": "From which album is the Gorillaz song, &quot;On Melancholy Hill&quot; featured in?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Bob Dylan",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Elvis",
+                "Adele",
+                "Billy Joel"
+            ],
+            "question": "&quot;Make You Feel My Love&quot; was originally written and performed by which singer-songwriter?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "2013",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "2011",
+                "2014",
+                "2009"
+            ],
+            "question": "When was the 3rd album &quot;Notes from the Underground&quot; of the band &quot;Hollywood Undead&quot; released?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Italy",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Germany",
+                "Austria",
+                "France"
+            ],
+            "question": "From which country does the piano originate?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Music",
+            "correct_answer": "Eddie Van Halen",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Steve Vai",
+                "Kirk Hammett",
+                "Zakk Wylde"
+            ],
+            "question": "Who performed the guitar solo on Michael Jackson&#039;s hit &quot;Beat It&quot;?",
+            "type": "multiple"
+        }
+    ]   
+};
+
 var sportsQuiz = 
 {
     // The schema and content for this JSON comes from the 
@@ -1522,6 +2013,15 @@ var testQuiz =
 // TODO: As a future enhancement, it might be fun to add sound design to this object.
 
 var QuizCatalog = {
+    "Music": {
+        // https://flic.kr/p/Qdk1Ys
+        // Phin Hall
+        // Flight Brigade - Live
+        // (CC BY-SA 2.0)
+        "schemaType": "OpenTDB",
+        "imgSrc": "assets/img/music.jpg",
+        "quiz": musicQuiz  
+    },
     "Sports": {
         "schemaType": "OpenTDB",
         // https://flic.kr/p/oi8DTK
