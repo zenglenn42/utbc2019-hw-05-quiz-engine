@@ -1585,7 +1585,7 @@ QuizFactory.prototype.swalQuizSelect = function() {
 QuizFactory.prototype.getQuizJSON = function(quizKey) {
     return this.quizzes[quizKey];
 }
-QuizFactory.prototype.createQuiz = function(quizKey, numItems = 3) {
+QuizFactory.prototype.createQuiz = function(quizKey, numItems = 10) {
     let quiz = undefined;
     let imgSrc = "";
     let praise = undefined;
