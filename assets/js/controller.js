@@ -23,6 +23,7 @@ QuizController.prototype.reset = function() {
     this.setTimeRemaining();
     this.hideDisplay();
     this.respondingToAnswer = false;
+    this.disableTimers();
 }
 
 QuizController.prototype.hideDisplay = function() {
