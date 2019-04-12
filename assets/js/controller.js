@@ -13,6 +13,9 @@ function QuizController(mainContainerId, timeRemainingId, questionId, choicesId,
     this.addQuizSelectionList();
     this.reset();
     this.showHelp();  // First time through, show help popup.
+    this.clickCallback = this.getClickCallback();
+    this.pauseCallback = this.getPauseCallback();
+    this.showAnswerPauseCallback = this.getShowAnswerPauseCallback();
 }
 
 QuizController.prototype.reset = function() {
@@ -21,6 +24,7 @@ QuizController.prototype.reset = function() {
     this.qm.reset();
     this.setTimeRemaining();
     this.hideDisplay();
+    this.respondingToAnswer = false;
 }
 
 QuizController.prototype.hideDisplay = function() {
@@ -47,17 +51,146 @@ QuizController.prototype.getPlayMenuEventCallback = function() {
     let that = this;
     function menuCallback(e) {
         that.unhideDisplay();
-        while (that.qm.quiz.hasMoreItems()) {
+        if (that.qm.quiz.hasMoreItems() && !that.respondingToAnswer) {
             let qi = that.qm.quiz.getNextItem();
-
-            let qHtml = that.qm.quiz.getQuestionHtml(qi);
-            that.questionId.innerHTML = qHtml;
-
-            let cHtml = that.qm.quiz.getChoicesHtml(qi);
-            that.choicesId.innerHTML = cHtml;
+            that.displayQuizItem(qi);
+            that.respondingToAnswer = true;
+            that.enableClicksAndTimers();
         }
+        // while (that.qm.quiz.hasMoreItems() && !that.respondingToAnswer) {
+        //     console.log("in play cb loop");
+        //     let qi = that.qm.quiz.getNextItem();
+        //     that.displayQuizItem(qi);
+        //     that.respondingToAnswer = true;
+        //     that.enableClicksAndTimers();
+        //     // that.disableClicksAndTimers();
+        // }
     }
     return menuCallback;
+}
+
+QuizController.prototype.displayQuizItem = function(quizItem) {
+    let qHtml = this.qm.quiz.getQuestionHtml(quizItem);
+    this.questionId.innerHTML = qHtml;
+
+    let cHtml = this.qm.quiz.getChoicesHtml(quizItem);
+    this.choicesId.innerHTML = cHtml;
+}
+
+QuizController.prototype.getClickCallback = function() {
+    let that = this;
+    function innerCallback(e) {
+        that.respondingToAnswer = true;
+
+        console.log("click");
+        console.log("this = ", this);   // button
+        console.log("that = ", that);   // quiz controller
+
+        // Once an answer button is clicked, we want to stop
+        // the countdown timers and lock in the player's choice by
+        // disabling other button clicks until the next question
+        // is displayed.
+
+        that.disableClicksAndTimers();
+        if (this.getAttribute('id') == "answer") {
+            that.congratulate();
+        } else {
+            console.log("wrong");
+            that.castigate();
+        }
+    }
+    return innerCallback;
+}
+
+QuizController.prototype.getPauseCallback = function() {
+    let that = this;
+    function innerCallback(e) {
+        console.log("that = ", that);
+        // Enable the next quiz item to be fetched back in
+        // the 'Play' callback.
+        that.respondingToAnswer = false;
+        console.log("getPauseCallback: enabling loop");
+        if (that.qm.quiz.hasMoreItems() && !that.respondingToAnswer) {
+            let qi = that.qm.quiz.getNextItem();
+            that.displayQuizItem(qi);
+            that.respondingToAnswer = true;
+            that.enableClicksAndTimers();
+        } else {
+            that.reset();   // Get ready for replay or new quiz selected.
+        }
+    }
+    return innerCallback;
+}
+
+QuizController.prototype.getShowAnswerPauseCallback = function() {
+    let that = this;
+    function innerCallback(e) {
+        console.log("that = ", that);
+        // Pause for an addition period to let player view
+        // highlighted correct answer after alert has disappeared.
+        setTimeout(that.pauseCallback, 2500);
+    }
+    return innerCallback;
+}
+
+QuizController.prototype.congratulate = function() {
+    let praise = this.qm.quiz.getRandomPraise();
+    console.log(praise);
+    swal({
+        type: 'success',
+        html: praise,
+        timer: 2000
+    }).then(this.pauseCallback);
+}
+
+QuizController.prototype.castigate = function(bannerText) {
+    let text = bannerText;
+    this.showAnswer();
+    console.log("castigate text: ", text);
+    swal({
+        type: 'error',
+        html: text,
+        timer: 1500
+    }).then(this.showAnswerPauseCallback);
+}
+
+QuizController.prototype.enableClicksAndTimers = function() {
+    console.log("enabling clicks");
+    $(document).on('click', '.btn-choice', this.clickCallback);
+    this.enableTimers();
+}
+
+QuizController.prototype.disableClicksAndTimers = function() {
+    console.log("disabling clicks");
+    this.disableClicks();
+    this.disableTimers();
+}
+
+QuizController.prototype.disableClicks = function() {
+    $(document).off('click', '.btn-choice', this.clickCallback);
+}
+
+QuizController.prototype.oneSecTimerCallback = function() {
+    console.log("1 sec");
+}
+
+QuizController.prototype.questionTimerCallback = function() {
+    console.log("question timeout");
+    this.respondingToAnswer = true;
+    // If player takes too long to answer, then suspend
+    // play so the correct answer can be displayed.
+    this.disableClicksAndTimers();
+    this.castigate("Time's Up ⏰");
+}
+
+QuizController.prototype.enableTimers = function() {
+    this.oneSecInterval = setInterval(this.oneSecTimerCallback.bind(this), 1000);
+    this.questionInterval = setInterval(this.questionTimerCallback.bind(this), 5000);
+}
+
+QuizController.prototype.disableTimers = function() {
+    clearInterval(this.oneSecInterval);
+    clearInterval(this.questionInterval);
 }
 
 QuizController.prototype.showAnswer = function() {
@@ -70,7 +203,7 @@ QuizController.prototype.showHelp = function() {
     let helpStr = this.qm.helpText;
     swal(helpTitle, helpStr).then(function() {
         // TODO: Configure to allow dismissal outside modal.
-        //       Otherwise throws a (benign but annoying)
+        //       Otherwise throws a benign (but annoying)
         //       uncaught exception.
     });
 }
