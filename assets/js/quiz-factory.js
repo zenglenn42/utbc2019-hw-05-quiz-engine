@@ -1,3 +1,134 @@
+var politicsQuiz = {
+    // The schema and content for this JSON comes from the Open Trivia Database
+    // https://opentdb.com
+    //
+    // https://opentdb.com/api.php?amount=10&category=24&difficulty=medium&type=multiple
+
+    "response_code": 0,
+    "results": [
+        {
+            "category": "Politics",
+            "correct_answer": "Neville Chamberlain",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Clement Attlee",
+                "Winston Churchill",
+                "Stanley Baldwin"
+            ],
+            "question": "Who was the British Prime Minister at the outbreak of the Second World War?",
+            "type": "multiple"
+        },
+        {
+            "category": "Politics",
+            "correct_answer": "Andrew Jackson",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Ronald Reagan",
+                "John F. Kennedy",
+                "Franklin Roosevelt"
+            ],
+            "question": "Which president erased the national debt of the United States?",
+            "type": "multiple"
+        },
+        {
+            "category": "Politics",
+            "correct_answer": "George Washington",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Abraham Lincoln",
+                "Richard Nixon",
+                "Thomas Jefferson"
+            ],
+            "question": "Who was the only president to not be in office in Washington D.C?",
+            "type": "multiple"
+        },
+        {
+            "category": "Politics",
+            "correct_answer": "Ronald Reagan",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Jimmy Carter",
+                "Bill Clinton",
+                "Richard Nixon"
+            ],
+            "question": "Who was the 40th President of the USA?",
+            "type": "multiple"
+        },
+        {
+            "category": "Politics",
+            "correct_answer": "Indonesia",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Thailand",
+                "Brunei",
+                "Malaysia"
+            ],
+            "question": "The 2014 movie 'The Raid 2: Berandal' was mainly filmed in which Asian country?",
+            "type": "multiple"
+        },
+        {
+            "category": "Politics",
+            "correct_answer": "Theresa May",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Boris Johnson",
+                "David Cameron",
+                "Tony Blair"
+            ],
+            "question": "Who became Prime Minister of the United Kingdom in July 2016?",
+            "type": "multiple"
+        },
+        {
+            "category": "Politics",
+            "correct_answer": "Jeremy Corbyn",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "Ed Miliband",
+                "David Cameron",
+                "Theresa May"
+            ],
+            "question": "Who was elected leader of the UK Labour Party in September 2015?",
+            "type": "multiple"
+        },
+        {
+            "category": "Politics",
+            "correct_answer": "William Jefferson Clinton",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "William Roosevelt Clinton",
+                "William Truman Clinton",
+                "William Lincoln Clinton"
+            ],
+            "question": "What is former United States President Bill Clinton's full name?",
+            "type": "multiple"
+        },
+        {
+            "category": "Politics",
+            "correct_answer": "3",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "1",
+                "2",
+                "0"
+            ],
+            "question": "In United States history, how many vice presidents did Franklin D. Roosevelt have during his time in office as president?",
+            "type": "multiple"
+        },
+        {
+            "category": "Politics",
+            "correct_answer": "The Kingfish",
+            "difficulty": "medium",
+            "incorrect_answers": [
+                "The Champ",
+                "The Hoot Owl",
+                "The Oracle"
+            ],
+            "question": "What was the personal nickname of the 40th Governor of the US State Louisiana, Huey Long?",
+            "type": "multiple"
+        }
+    ]
+};
+
 var musicQuiz = {
     // The schema and content for this JSON comes from the Open Trivia Database
     // https://opentdb.com
@@ -15,7 +146,7 @@ var musicQuiz = {
                 "Disclosure",
                 "David Guetta"
             ],
-            "question": "What French artist/band is known for playing on the midi instrument &quot;Launchpad&quot;?",
+            "question": "What French artist/band is known for playing on the midi instrument 'Launchpad'?",
             "type": "multiple"
         },
         {
@@ -27,7 +158,7 @@ var musicQuiz = {
                 "Rush",
                 "AC/DC"
             ],
-            "question": "Who had a 1973 hit with the song &#039;Hocus Pocus&#039;?",
+            "question": "Who had a 1973 hit with the song 'Hocus Pocus'?",
             "type": "multiple"
         },
         {
@@ -39,7 +170,7 @@ var musicQuiz = {
                 "Earth",
                 "Water"
             ],
-            "question": "Which French duo had UK hits in 1998 with the songs &#039;Sexy Boy&#039;, &#039;Kelly Watch The Stars&#039; &amp; &#039;All I Need&#039;?",
+            "question": "Which French duo had UK hits in 1998 with the songs 'Sexy Boy', 'Kelly Watch The Stars' & 'All I Need'?",
             "type": "multiple"
         },
         {
@@ -51,7 +182,7 @@ var musicQuiz = {
                 "The Doobie Brothers",
                 "Fleetwood Mac"
             ],
-            "question": "Which band had hits in 1975 with the songs, &#039;One Of These Nights&#039; &amp; &#039;Lyin Eyes&#039;?",
+            "question": "Which band had hits in 1975 with the songs, 'One Of These Nights' & 'Lyin Eyes'?",
             "type": "multiple"
         },
         {
@@ -63,7 +194,7 @@ var musicQuiz = {
                 "The Jacksons",
                 "The Cover Girls"
             ],
-            "question": "Which American family band had a 1986 top 10 hit with the song &#039;Crush On You&#039;?",
+            "question": "Which American family band had a 1986 top 10 hit with the song 'Crush On You'?",
             "type": "multiple"
         },
         {
@@ -75,7 +206,7 @@ var musicQuiz = {
                 "The Spotnicks",
                 "The Tremeloes"
             ],
-            "question": "Who had a US and UK number 1 hit in 1962 with the instrumental, &#039;Telstar&#039;?",
+            "question": "Who had a US and UK number 1 hit in 1962 with the instrumental, 'Telstar'?",
             "type": "multiple"
         },
         {
@@ -99,7 +230,7 @@ var musicQuiz = {
                 "David Gilmour",
                 "Floyd"
             ],
-            "question": "Who is the Pink Floyd song &quot;Shine On You Crazy Diamond&quot; written about?",
+            "question": "Who is the Pink Floyd song 'Shine On You Crazy Diamond' written about?",
             "type": "multiple"
         },
         {
@@ -123,7 +254,7 @@ var musicQuiz = {
                 "CeeLo Green",
                 "Pharrell Williams"
             ],
-            "question": "Which singer was featured in Swedish producer Avicii&#039;s song &quot;Wake Me Up&quot;?",
+            "question": "Which singer was featured in Swedish producer Avicii's song 'Wake Me Up'?",
             "type": "multiple"
         },
         {
@@ -135,7 +266,7 @@ var musicQuiz = {
                 "Phoenix",
                 "Franz Ferdinand"
             ],
-            "question": "Which band released songs such as &quot;Electric Feel&quot;, &quot;Kids&quot;, and &quot;Time to Pretend&quot;?",
+            "question": "Which band released songs such as 'Electric Feel', 'Kids', and 'Time to Pretend'?",
             "type": "multiple"
         },
         {
@@ -183,7 +314,7 @@ var musicQuiz = {
                 "Flash",
                 "Bohemian Rhapsody"
             ],
-            "question": "Which Queen song was covered by Brittany Murphy in the 2006 film &quot;Happy Feet&quot;?",
+            "question": "Which Queen song was covered by Brittany Murphy in the 2006 film 'Happy Feet'?",
             "type": "multiple"
         },
         {
@@ -231,7 +362,7 @@ var musicQuiz = {
                 "8/12",
                 "2/4"
             ],
-            "question": "What&#039;s the most common time signature for rock songs?",
+            "question": "What's the most common time signature for rock songs?",
             "type": "multiple"
         },
         {
@@ -279,7 +410,7 @@ var musicQuiz = {
                 "United States",
                 "Finland"
             ],
-            "question": "Which country does the power metal band &quot;Sabaton&quot; originate from?",
+            "question": "Which country does the power metal band 'Sabaton' originate from?",
             "type": "multiple"
         },
         {
@@ -303,7 +434,7 @@ var musicQuiz = {
                 "Sushi",
                 "Oden"
             ],
-            "question": "What was the title of Sakamoto Kyu&#039;s song &quot;Ue o Muite Arukou&quot; (I Look Up As I Walk) changed to in the United States?",
+            "question": "What was the title of Sakamoto Kyu's song 'Ue o Muite Arukou' (I Look Up As I Walk) changed to in the United States?",
             "type": "multiple"
         },
         {
@@ -327,7 +458,7 @@ var musicQuiz = {
                 "Adam lambert",
                 "Koven"
             ],
-            "question": "What musician made the song &quot;Fuckin` Perfect&quot; in 2010?",
+            "question": "What musician made the song 'Fuckin` Perfect' in 2010?",
             "type": "multiple"
         },
         {
@@ -339,7 +470,7 @@ var musicQuiz = {
                 "Bing Crosby",
                 "Enya"
             ],
-            "question": "Who recorded the album called &quot;Down to the Moon&quot; in 1986?",
+            "question": "Who recorded the album called 'Down to the Moon' in 1986?",
             "type": "multiple"
         },
         {
@@ -351,7 +482,7 @@ var musicQuiz = {
                 "Faithful",
                 "Pop Style"
             ],
-            "question": "Which song in Drake&#039;s &quot;Views&quot; features Future?",
+            "question": "Which song in Drake's 'Views' features Future?",
             "type": "multiple"
         },
         {
@@ -363,7 +494,7 @@ var musicQuiz = {
                 "Men in Black",
                 "Bad Boys"
             ],
-            "question": "In what film was the Michael Jackson song &quot;Will You Be There&quot; featured?",
+            "question": "In what film was the Michael Jackson song 'Will You Be There' featured?",
             "type": "multiple"
         },
         {
@@ -375,7 +506,7 @@ var musicQuiz = {
                 "Ben 10 Alien Force",
                 "Star Wars"
             ],
-            "question": "Cryoshell, known for &quot;Creeping in My Soul&quot; did the advertising music for what Lego Theme?",
+            "question": "Cryoshell, known for 'Creeping in My Soul' did the advertising music for what Lego Theme?",
             "type": "multiple"
         },
         {
@@ -385,7 +516,7 @@ var musicQuiz = {
             "incorrect_answers": [
                 "Box Car Racer",
                 "Blink-182",
-                "Angels &amp; Airwaves"
+                "Angels & Airwaves"
             ],
             "question": "Which of the following bands is Tom DeLonge not a part of?",
             "type": "multiple"
@@ -423,7 +554,7 @@ var musicQuiz = {
                 "Coldplay",
                 "Bon Jovi"
             ],
-            "question": "Which of these bands was a featuring artist in Compton rapper Kendrick Lamar&#039;s 2017 album, &quot;DAMN.&quot;?",
+            "question": "Which of these bands was a featuring artist in Compton rapper Kendrick Lamar's 2017 album, 'DAMN.'?",
             "type": "multiple"
         },
         {
@@ -435,7 +566,7 @@ var musicQuiz = {
                 "Humanz",
                 "The Fall"
             ],
-            "question": "From which album is the Gorillaz song, &quot;On Melancholy Hill&quot; featured in?",
+            "question": "From which album is the Gorillaz song, 'On Melancholy Hill' featured in?",
             "type": "multiple"
         },
         {
@@ -447,7 +578,7 @@ var musicQuiz = {
                 "Adele",
                 "Billy Joel"
             ],
-            "question": "&quot;Make You Feel My Love&quot; was originally written and performed by which singer-songwriter?",
+            "question": "'Make You Feel My Love' was originally written and performed by which singer-songwriter?",
             "type": "multiple"
         },
         {
@@ -459,7 +590,7 @@ var musicQuiz = {
                 "2014",
                 "2009"
             ],
-            "question": "When was the 3rd album &quot;Notes from the Underground&quot; of the band &quot;Hollywood Undead&quot; released?",
+            "question": "When was the 3rd album 'Notes from the Underground' of the band 'Hollywood Undead' released?",
             "type": "multiple"
         },
         {
@@ -483,7 +614,7 @@ var musicQuiz = {
                 "Kirk Hammett",
                 "Zakk Wylde"
             ],
-            "question": "Who performed the guitar solo on Michael Jackson&#039;s hit &quot;Beat It&quot;?",
+            "question": "Who performed the guitar solo on Michael Jackson's hit 'Beat It'?",
             "type": "multiple"
         }
     ]   
@@ -795,7 +926,7 @@ var sportsQuiz =
                 "Brazil",
                 "Paraguay"
             ],
-            "question": "Which soccer team won the Copa Am&eacute;rica 2015 Championship ?",
+            "question": "Which soccer team won the Copa América 2015 Championship ?",
             "type": "multiple"
         },
         {
@@ -807,7 +938,7 @@ var sportsQuiz =
                 "Brazil",
                 "Colombia"
             ],
-            "question": "Which soccer team won the Copa Am&eacute;rica Centenario 2016?",
+            "question": "Which soccer team won the Copa América Centenario 2016?",
             "type": "multiple"
         },
         {
@@ -1701,7 +1832,7 @@ var comicsQuiz =
         },
         {
             "category": "Entertainment: Comics",
-            "correct_answer": "Herg&eacute;",
+            "correct_answer": "Hergé",
             "difficulty": "medium",
             "incorrect_answers": [
                 "E.P. Jacobs",
@@ -2013,6 +2144,15 @@ var testQuiz =
 // TODO: As a future enhancement, it might be fun to add sound design to this object.
 
 var QuizCatalog = {
+    "Politics": {
+        // https://flic.kr/p/61gsvF
+        // mbell1975
+        // Dewey Defeats Truman Picture at National Portrait Gallery
+        // (CC BY-SA 2.0)
+        "schemaType": "OpenTDB",
+        "imgSrc": "assets/img/politics.jpg",
+        "quiz": politicsQuiz  
+    },
     "Music": {
         // https://flic.kr/p/Qdk1Ys
         // Phin Hall
