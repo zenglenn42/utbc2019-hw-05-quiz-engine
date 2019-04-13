@@ -1,3 +1,129 @@
+var mythologyQuiz = {
+    "response_code": 0,
+    "results": [
+        {
+            "category": "Mythology",
+            "correct_answer": "Apollo",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Demeter",
+                "Zeus",
+                "Athena"
+            ],
+            "question": "Who was the only god from Greece who did not get a name change in Rome?",
+            "type": "multiple"
+        },
+        {
+            "category": "Mythology",
+            "correct_answer": "Mars",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Jupiter",
+                "Juno",
+                "Ares"
+            ],
+            "question": "The ancient Roman god of war was commonly known as which of the following?",
+            "type": "multiple"
+        },
+        {
+            "category": "Mythology",
+            "correct_answer": "Jason",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Castor",
+                "Daedalus",
+                "Odysseus"
+            ],
+            "question": "Who in Greek mythology, who led the Argonauts in search of the Golden Fleece?",
+            "type": "multiple"
+        },
+        {
+            "category": "Mythology",
+            "correct_answer": "Eris",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Charon",
+                "Ceres",
+                "Dysnomia"
+            ],
+            "question": "This Greek goddess&#039;s name was chosen for the dwarf planet responsible for discord on Pluto&#039;s classification amongst astronomers.",
+            "type": "multiple"
+        },
+        {
+            "category": "Mythology",
+            "correct_answer": "Zeus",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Apollo",
+                "Hermes",
+                "Poseidon"
+            ],
+            "question": "Who was the King of Gods in Ancient Greek mythology?",
+            "type": "multiple"
+        },
+        {
+            "category": "Mythology",
+            "correct_answer": "Apollo",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Aphrodite",
+                "Artemis",
+                "Athena"
+            ],
+            "question": "Which Greek &amp; Roman god was known as the god of music, truth and prophecy, healing, the sun and light, plague, poetry, and more?",
+            "type": "multiple"
+        },
+        {
+            "category": "Mythology",
+            "correct_answer": "The Sea",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "War",
+                "Sun",
+                "Fire"
+            ],
+            "question": "The greek god Poseidon was the god of what?",
+            "type": "multiple"
+        },
+        {
+            "category": "Mythology",
+            "correct_answer": "Orpheus",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Hercules",
+                "Perseus",
+                "Daedalus"
+            ],
+            "question": "Which figure from Greek mythology traveled to the underworld to return his wife Eurydice to the land of the living?",
+            "type": "multiple"
+        },
+        {
+            "category": "Mythology",
+            "correct_answer": "Hera",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Aphrodite",
+                "Athena",
+                "Hestia"
+            ],
+            "question": "In most traditions, who was the wife of Zeus?",
+            "type": "multiple"
+        },
+        {
+            "category": "Mythology",
+            "correct_answer": "Greek and Roman",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Roman and Spanish",
+                "Greek and Chinese",
+                "Greek, Roman and Norse"
+            ],
+            "question": "What mythology did the god &quot;Apollo&quot; come from?",
+            "type": "multiple"
+        }
+    ]
+};
+
 var politicsQuiz = {
     // The schema and content for this JSON comes from the Open Trivia Database
     // https://opentdb.com
@@ -2144,6 +2270,15 @@ var testQuiz =
 // TODO: As a future enhancement, it might be fun to add sound design to this object.
 
 var QuizCatalog = {
+    "Mythology": {
+        // https://flic.kr/p/9cHnr5
+        // Eden, Janine and Jim
+        // Theseus Slaying the Minotaur
+        // (CC BY 2.0)
+        "schemaType": "OpenTDB",
+        "imgSrc": "assets/img/mythology.jpg",
+        "quiz": mythologyQuiz  
+    },
     "Politics": {
         // https://flic.kr/p/61gsvF
         // mbell1975
