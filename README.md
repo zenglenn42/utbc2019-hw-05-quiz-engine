@@ -6,6 +6,14 @@ Users answer a series of multiple choice questions in the presence of a count-do
 
 # Implementation Details
 
+## Release 1.0 (MVP)
+
+![alt tag](docs/img/qt-select.png)
+
+Here's what the final layout looks like on mobile:
+
+![alt tag](docs/img/qt-mobile.png)
+
 ## Can we talk?
 
 ![alt tag](docs/img/can-we-talk.png)
