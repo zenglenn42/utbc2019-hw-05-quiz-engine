@@ -21,12 +21,15 @@ Users are presented a sequence of timed questions.  If they take too long, a tim
 ## Can we talk?
 
 ![alt tag](docs/img/can-we-talk.png)
+Image courtesy [Rebekah Smith](https://flic.kr/p/Fsk6s5)
 
-So I got the basic MVP behavior working with my warm-puppy, quiz item test schema. But when I went to scale up with some real input data from the OpenTDB, the controller code started fighting me. He talked a good game, but he buckled under the pressure of scale. I want an expedient badass, but he's gotta be able to wear a tuxedo too.
+So I got the basic MVP behavior working with my warm-puppy, quiz item test schema. But when I went to scale up with some real input data from the OpenTDB, the controller code started fighting me. [He talked a good game](https://github.com/zenglenn42/utbc2019-hw-05-quiz-engine/blob/220d4e9b134c6b671c09e8105af3495c250b8671/assets/js/controller.js#L1), but he buckled under the pressure of scale. I want an expedient badass, but he's gotta be able to wear a tuxedo too.
 
 ![alt tag](docs/img/tuxedo.png)
+[QuizController 3.0](https://github.com/zenglenn42/utbc2019-hw-05-quiz-engine/blob/cc089c2eff0fa4fa75beb6bc6d6c6315c2d88bd8/assets/js/controller.js#L1)
+Image courtesty [AP](https://commons.wikimedia.org/wiki/File:Bruce_Willis_-_1987.jpg#filelinks)
 
-The falt is all mine. Truth be told, I shot from the hip rather than breaking the controller task down into a cohesive set of user stories. I'm not saying I've learned the error of my ways, but I have distilled the controller down to a pretty defensible UML activity diagram. With that in mind, I'm gonna take another run at the controller. Third time's the charm. ;-)
+The falt is all mine. Truth be told, I shot from the hip rather than breaking the controller task down into a cohesive set of user stories. I'm not saying I've learned the error of my ways, but I have distilled the controller down to a pretty defensible UML activity diagram. With that in mind, I'm gonna take another run at the controller. [Third time's the charm.](https://github.com/zenglenn42/utbc2019-hw-05-quiz-engine/blob/cc089c2eff0fa4fa75beb6bc6d6c6315c2d88bd8/assets/js/controller.js#L1) ;-)
 
 ![alt tag](docs/img/qt-act-dg.png)
 
@@ -34,7 +37,7 @@ I've got a responsive UI plugged in, leveraged from the last couple projects.
 
 ![alt tag](docs/img/qt-ui.png)
 
-I've refactored the model to cleanly support OpenTDB (and other schemas going forward). But this requires me to rework the controller.
+I've refactored the model to cleanly support OpenTDB (and other schemas going forward). But this requires me to rework the controller a bit.
 
 I did some googling and discovered there is indeed an endpoint called the [Open Trivia Database](https://opentdb.com) (OpenTDB) which serves up trivia questions in 24 categories as arrays of downloadable json. A typical ajax queryUrl for 40 multiple choice questions in the 'Comics' category looks like this:
 
@@ -129,7 +132,7 @@ As with my [Word Stop](https://github.com/zenglenn42/utbc2019-hw-03-wordgame/blo
 Given that I'm learning about ajax and api endpoints, I wonder if there are [json or xml standards already out](https://quizlet.com/api/2.0/docs) there for this kind of data? Perhaps my little quiz engine could be designed to tap into a wealth of content already out there.
 
 ![alt tag](docs/img/blue-sky.jpg)
-([Image](https://flic.kr/p/24B2fo9) courtesy Gary Campbell-Hall, CC BY 2.0)
+[Image](https://flic.kr/p/24B2fo9) courtesy Gary Campbell-Hall, CC BY 2.0
 
 The other blue sky thought is how fun it would be to introduce some of the cool learning models out there that look at memory attenuation and how mastery and learning efficiency can be improved by repeating a question just at the point we have to struggle a little bit to recall it.
 
