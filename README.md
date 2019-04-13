@@ -14,7 +14,7 @@ Here's what the final layout looks like on mobile:
 
 ![alt tag](docs/img/qt-mobile.png)
 
-Users are presented a sequence of timed questions.  If they take too long, a times-up message display followed by orange highlighting of the correct answer.
+Users are presented a sequence of timed questions.  If they take too long, a times-up message displays followed by orange highlighting of the correct answer.
 
 ![alt tag](docs/img/qt-play.png)
 
