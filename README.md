@@ -8,13 +8,15 @@ Users answer a series of multiple choice questions in the presence of a count-do
 
 ## Release 1.0 (MVP)
 
-![alt tag](docs/img/qt-select.png)
-
 Here's what the final layout looks like on mobile:
 
 ![alt tag](docs/img/qt-mobile.png)
 
-Users are presented a sequence of timed questions.  If they take too long, a times-up message displays followed by orange highlighting of the correct answer.
+User's select from a variety of quizzes ...
+
+![alt tag](docs/img/qt-select.png)
+
+and then are presented a sequence of timed questions.  If they take too long, a times-up message displays followed by orange highlighting of the correct answer.
 
 ![alt tag](docs/img/qt-play.png)
 
@@ -102,6 +104,8 @@ I knocked out the guts of the quiz [json](https://github.com/zenglenn42/utbc2019
 
 ![alt tag](docs/img/model-controller.png)
 (How I'm feeling about the model and controller in this project.)
+"Breakfast at Tiffany's" courtesy [Pablo Fernández](https://flic.kr/p/7U6dUF)
+"Die Hard 4.0" courtesy [Phim Ảnh](https://flic.kr/p/4NxBRX)
 
 The controller was another story. It felt more like a street fight and had a ton of callbacks to manage both input clicks and various interval timers. First I stood up a primitive user interface:
 
