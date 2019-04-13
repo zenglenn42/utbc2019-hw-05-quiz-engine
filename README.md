@@ -10,20 +10,19 @@ Users answer a series of multiple choice questions in the presence of a count-do
 
 ![alt tag](docs/img/can-we-talk.png)
 
-So I got the basic MVP behavior working with my warm-puppy, quiz item test schema.  But when I went to scale up with some real input data from the OpenTDB, the controller code started fighting me.  He talked a good game, but he buckled under the pressure of scale.  I want an expedient badass, but he's gotta be able to wear a tuxedo too.
+So I got the basic MVP behavior working with my warm-puppy, quiz item test schema. But when I went to scale up with some real input data from the OpenTDB, the controller code started fighting me. He talked a good game, but he buckled under the pressure of scale. I want an expedient badass, but he's gotta be able to wear a tuxedo too.
 
 ![alt tag](docs/img/tuxedo.png)
 
-The falt is all mine.  Truth be told, I shot from the hip rather than breaking the controller task down into a cohesive set of user stories.  I'm not saying I've learned the error of my ways, but I have distilled the controller down to a pretty defensible UML activity diagram.  With that in mind, I'm gonna take another run at the controller.  Third time's the charm. ;-)
+The falt is all mine. Truth be told, I shot from the hip rather than breaking the controller task down into a cohesive set of user stories. I'm not saying I've learned the error of my ways, but I have distilled the controller down to a pretty defensible UML activity diagram. With that in mind, I'm gonna take another run at the controller. Third time's the charm. ;-)
 
 ![alt tag](docs/img/qt-act-dg.png)
-
 
 I've got a responsive UI plugged in, leveraged from the last couple projects.
 
 ![alt tag](docs/img/qt-ui.png)
 
-I've refactored the model to cleanly support OpenTDB (and other schemas going forward).  But this requires me to rework the controller.
+I've refactored the model to cleanly support OpenTDB (and other schemas going forward). But this requires me to rework the controller.
 
 I did some googling and discovered there is indeed an endpoint called the [Open Trivia Database](https://opentdb.com) (OpenTDB) which serves up trivia questions in 24 categories as arrays of downloadable json. A typical ajax queryUrl for 40 multiple choice questions in the 'Comics' category looks like this:
 
@@ -107,18 +106,22 @@ The time invested with sweetalerts in a previous project allowed me to leverage 
 
 # Designer's Log
 
+## UML Class Diagram
+
+![alt tag](docs/img/qt-cd.png)
+
 ## Blue Sky
 
 As with my [Word Stop](https://github.com/zenglenn42/utbc2019-hw-03-wordgame/blob/fb11d26422f2a119c03826527539e3fdb5661f91/assets/js/lexicon.js#L36) game, I see all sorts of potential for a data-driven design, supporting various quizzes with unique visual and audio themes.
 
-Given that I'm learning about ajax and api endpoints, I wonder if there are [json or xml standards already out](https://quizlet.com/api/2.0/docs) there for this kind of data?  Perhaps my little quiz engine could be designed to tap into a wealth of content already out there.
+Given that I'm learning about ajax and api endpoints, I wonder if there are [json or xml standards already out](https://quizlet.com/api/2.0/docs) there for this kind of data? Perhaps my little quiz engine could be designed to tap into a wealth of content already out there.
 
 ![alt tag](docs/img/blue-sky.jpg)
 ([Image](https://flic.kr/p/24B2fo9) courtesy Gary Campbell-Hall, CC BY 2.0)
 
 The other blue sky thought is how fun it would be to introduce some of the cool learning models out there that look at memory attenuation and how mastery and learning efficiency can be improved by repeating a question just at the point we have to struggle a little bit to recall it.
 
-I've played with some of these so called '[spaced repetition systems](https://en.wikipedia.org/wiki/Spaced_repetition)' but have always felt disappointment at the lack of curation for the quiz decks that drive them and that get thrown up on the web.  There's no way to gauage the quality of 3rd party content, to easily flag errors, to see a history of changes over time, to contribute suggestions such that the content becomes better and more authoratative over time.
+I've played with some of these so called '[spaced repetition systems](https://en.wikipedia.org/wiki/Spaced_repetition)' but have always felt disappointment at the lack of curation for the quiz decks that drive them and that get thrown up on the web. There's no way to gauage the quality of 3rd party content, to easily flag errors, to see a history of changes over time, to contribute suggestions such that the content becomes better and more authoratative over time.
 
 Coming up with a good deck of cards is very time consuming and really good decks should rise above the others and be evangelized and possibly opened sourced for community maintenance. Fortunately a well understood model exists for this ... up-and-down voting, likes, and stars on social media.
 
