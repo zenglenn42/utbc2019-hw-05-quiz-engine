@@ -20,6 +20,10 @@ and then are presented a sequence of timed questions.  If they take too long, a 
 
 ![alt tag](docs/img/qt-play.png)
 
+Questions are statically pulled from the Open Trivia Database for several categories and integrated to the model through a chunk of [JSON](https://github.com/zenglenn42/utbc2019-hw-05-quiz-engine/blob/13f8a9893b81a2488b788bb229757c30ad51c5a9/assets/js/quiz-factory.js#L1524).  As a future enhancement, questions could be pulled live from the endpoint when internet is present.
+
+![alt tag](docs/img/opentdb-logo.png)
+
 ## Can we talk?
 
 ![alt tag](docs/img/can-we-talk.png)
