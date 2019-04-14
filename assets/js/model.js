@@ -2,7 +2,7 @@
 function QuizModel(quizKey = "Movies", numItems = 10) {
     this.name = "Quiz Time ⏰";
     this.factory = new QuizFactory();
-    this.questionTimeoutMsec = 10000;   
+    this.questionTimeoutMsec = 12000;   
     this.pauseTimeoutMsec = 2750;// Must come before setQuiz()!
     this.setQuiz(quizKey, numItems);    // Establishes this.quiz
 }
