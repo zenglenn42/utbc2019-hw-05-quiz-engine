@@ -107,9 +107,10 @@ I knocked out the guts of the quiz [json](https://github.com/zenglenn42/utbc2019
 ![alt tag](docs/img/model-unit-test.png)
 
 ![alt tag](docs/img/model-controller.png)
-(How I'm feeling about the model and controller in this project.)
-"Breakfast at Tiffany's" courtesy [Pablo Fernández](https://flic.kr/p/7U6dUF)
-"Die Hard 4.0" courtesy [Phim Ảnh](https://flic.kr/p/4NxBRX)
+How I'm feeling about the model and controller in this project.
+
+("Breakfast at Tiffany's" courtesy [Pablo Fernández](https://flic.kr/p/7U6dUF)
+"Die Hard 4.0" courtesy [Phim Ảnh](https://flic.kr/p/4NxBRX))
 
 The controller was another story. It felt more like a street fight and had a ton of callbacks to manage both input clicks and various interval timers. First I stood up a primitive user interface:
 
