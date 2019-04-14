@@ -43,7 +43,7 @@ I've got a responsive UI plugged in, leveraged from the last couple projects.
 
 ![alt tag](docs/img/qt-ui.png)
 
-I've refactored the model to cleanly support OpenTDB (and other schemas going forward). But this requires me to rework the controller a bit.
+I've [refactored the model](https://github.com/zenglenn42/utbc2019-hw-05-quiz-engine/commit/13f8a9893b81a2488b788bb229757c30ad51c5a9) to cleanly support OpenTDB (and other schemas going forward). But this requires me to rework the controller a bit.
 
 I did some googling and discovered there is indeed an endpoint called the [Open Trivia Database](https://opentdb.com) (OpenTDB) which serves up trivia questions in 24 categories as arrays of downloadable json. A typical ajax queryUrl for 40 multiple choice questions in the 'Comics' category looks like this:
 
