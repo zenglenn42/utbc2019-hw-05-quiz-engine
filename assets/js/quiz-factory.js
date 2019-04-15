@@ -1,3 +1,297 @@
+var tvQuiz = {
+    "response_code": 0,
+    "results": [
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "Radar",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Hawkeye",
+                "Hot Lips",
+                "Trapper"
+            ],
+            "question": "In the TV show 'M*A*S*H', what was the nickname of Corporal Walter O'Reilly?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "David Duchovny",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Gillian Anderson",
+                "Robert Patrick",
+                "Mitch Pileggi"
+            ],
+            "question": "Who played Agent Fox Mulder in the TV sci-fi drama 'The X-Files'?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "Walter White",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Saul Goodman",
+                "Jesse Pinkman",
+                "Skyler White"
+            ],
+            "question": "Who is the star of the AMC series Breaking Bad?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "Tiberius",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Trevor",
+                "Travis",
+                "Tyrone"
+            ],
+            "question": "In the original Star Trek TV series, what was Captain James T. Kirk's middle name?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "The Flash",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "The Arrow",
+                "Black Canary",
+                "Daredevil"
+            ],
+            "question": "Grant Gustin plays which superhero on the CW show of the same name?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "Todd Chavez",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Lennie Turtletaub",
+                "Princess Carolyn",
+                "Tom Jumbo-Grumbo"
+            ],
+            "question": "Which of these Bojack Horseman characters is a human?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "Eleven",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Mike",
+                "Lucas",
+                "Karen"
+            ],
+            "question": "Which of these characters in 'Stranger Things' has the power of Telekinesis?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "RiDGiD STUDiOS",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Dan Bell",
+                "Billy Familia",
+                "VeganGainz"
+            ],
+            "question": "The 'Psycho' series of videos on YouTube was created by which of the following?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "Green",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Blue",
+                "Red",
+                "Purple"
+            ],
+            "question": "In the Star Trek universe, what color is Vulcan blood?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "Essos",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Easteros",
+                "Westereast",
+                "Esuntos"
+            ],
+            "question": "In Game of Thrones, what continent lies across the Narrow Sea from Westeros?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "Dean",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Dave",
+                "Steve",
+                "Mike"
+            ],
+            "question": "In Supernatural, what's is Sam's brothers name?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "Blue Sky",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Baby Blue",
+                "Rock Candy",
+                "Pure Glass"
+            ],
+            "question": "In the television show Breaking Bad, what is the street name of Walter and Jesse's notorious product?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "Barry Allen",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Oliver Queen",
+                "Bart Allen",
+                "Bruce Wayne"
+            ],
+            "question": "What is the name of the main character in 'The Flash' TV series?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "House Majority Whip",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Attorney General",
+                "President",
+                "Chief of Staff"
+            ],
+            "question": "In season one of the Netflix political drama 'House of Cards', what government position does Frank Underwood hold?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "The Governor",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Negan",
+                "Rick Grimes",
+                "Daryl Dixon"
+            ],
+            "question": "British actor David Morrissey stars as which role in 'The Walking Dead'?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "Stitch!",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Cory in the House",
+                "The Emperor's New School",
+                "Hannah Montana"
+            ],
+            "question": "Which of these Disney shows is classified as an anime?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "Eddie the Mean Old Yeti",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Kiddy Kong",
+                "Diddy Kong",
+                "King K. Rool"
+            ],
+            "question": "When Donkey Kong died in the 'Donkey Kong Country' episode 'It's a Wonderful Life', who was his guardian angel?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "2",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "10",
+                "5",
+                "3"
+            ],
+            "question": "How many seasons did the Sci-Fi television show 'Stargate Universe' have?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "Terry Jones",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Eric Idle",
+                "Graham Chapman",
+                "John Cleese"
+            ],
+            "question": "Who played the Waitress in the Spam sketch of 'Monty Python's Flying Circus'?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "Richard 'Dick' Whitman",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Donald Draper",
+                "John Ashbury",
+                "Michael 'Mikey' Wilhelm"
+            ],
+            "question": "In the TV show 'Mad Men', what was Donald Draper's birthname?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "William Hartnell",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "David Tennant",
+                "Peter Capaldi",
+                "Tom Baker"
+            ],
+            "question": "Who was the first ever actor to play 'The Doctor' on 'Doctor Who'?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": " Bryan Cranston",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Andrew Lincoln",
+                "Aaron Paul",
+                "RJ Mitte"
+            ],
+            "question": "Which actor portrays 'Walter White' in the series 'Breaking Bad'?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "Seinfeld",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Frasier",
+                "Becker",
+                "Friends"
+            ],
+            "question": "What NBC sitcom once saw two of its characters try to pitch NBC on a sitcom about nothing?",
+            "type": "multiple"
+        },
+        {
+            "category": "Entertainment: Television",
+            "correct_answer": "Kelly Clarkson",
+            "difficulty": "easy",
+            "incorrect_answers": [
+                "Justin Guarini",
+                "Ruben Studdard",
+                "Chris Daughtry"
+            ],
+            "question": "Which of the following won the first season of American Idol in 2002?",
+            "type": "multiple"
+        }
+    ]   
+};
+
 var mythologyQuiz = {
     "response_code": 0,
     "results": [
@@ -46,7 +340,7 @@ var mythologyQuiz = {
                 "Ceres",
                 "Dysnomia"
             ],
-            "question": "This Greek goddess&#039;s name was chosen for the dwarf planet responsible for discord on Pluto&#039;s classification amongst astronomers.",
+            "question": "This Greek goddess's name was chosen for the dwarf planet responsible for discord on Pluto's classification amongst astronomers.",
             "type": "multiple"
         },
         {
@@ -118,7 +412,7 @@ var mythologyQuiz = {
                 "Greek and Chinese",
                 "Greek, Roman and Norse"
             ],
-            "question": "What mythology did the god &quot;Apollo&quot; come from?",
+            "question": "What mythology did the god 'Apollo' come from?",
             "type": "multiple"
         }
     ]
@@ -2270,6 +2564,11 @@ var testQuiz =
 // TODO: As a future enhancement, it might be fun to add sound design to this object.
 
 var QuizCatalog = {
+    "TV": {
+        "schemaType": "OpenTDB",
+        "imgSrc": "assets/img/tv.jpg",
+        "quiz": tvQuiz  
+    },
     "Mythology": {
         // https://flic.kr/p/9cHnr5
         // Eden, Janine and Jim
