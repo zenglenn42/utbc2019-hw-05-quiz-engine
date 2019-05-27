@@ -1,6 +1,6 @@
-# utbc2019-hw-05-quiz-engine
+# [Quiz Time ⏰ (demo)](https://zenglenn42.github.io/utbc2019-hw-05-quiz-engine/)
 
-This week I'm working on an interval timer-based quiz game I'm calling Quiz Time ⏰.
+This week I'm working on a timer-based quiz engine I'm calling Quiz Time ⏰.
 
 Users answer a series of multiple choice questions in the presence of a count-down timer. Results are presented at the end with the option to replay the quiz.
 
