@@ -27,7 +27,6 @@ Questions are statically pulled from the [Open Trivia Database](https://opentdb.
 ## Can we talk?
 
 ![alt tag](docs/img/can-we-talk.jpg)
-Image courtesy [Rebekah Smith](https://flic.kr/p/Fsk6s5)
 
 So I got the basic MVP behavior working with my warm-puppy, quiz item [test schema](https://github.com/zenglenn42/utbc2019-hw-05-quiz-engine/blob/13f8a9893b81a2488b788bb229757c30ad51c5a9/assets/js/quiz-factory.js#L1478). But when I went to scale up with some [real input data](https://github.com/zenglenn42/utbc2019-hw-05-quiz-engine/blob/13f8a9893b81a2488b788bb229757c30ad51c5a9/assets/js/quiz-factory.js#L8) from the OpenTDB, the controller code started fighting me. [He talked a good game](https://github.com/zenglenn42/utbc2019-hw-05-quiz-engine/blob/220d4e9b134c6b671c09e8105af3495c250b8671/assets/js/controller.js#L1), but he buckled under the pressure of scale. I want an expedient badass, but he's gotta be able to wear a tuxedo too.  Oddly, I had a couple different code paths to the 'replay' state depending if the last question timed-out or the user clicked a response.  It just didn't feel right.
 
