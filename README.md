@@ -26,14 +26,13 @@ Questions are statically pulled from the [Open Trivia Database](https://opentdb.
 
 ## Can we talk?
 
-![alt tag](docs/img/can-we-talk.png)
+![alt tag](docs/img/can-we-talk.jpg)
 Image courtesy [Rebekah Smith](https://flic.kr/p/Fsk6s5)
 
 So I got the basic MVP behavior working with my warm-puppy, quiz item [test schema](https://github.com/zenglenn42/utbc2019-hw-05-quiz-engine/blob/13f8a9893b81a2488b788bb229757c30ad51c5a9/assets/js/quiz-factory.js#L1478). But when I went to scale up with some [real input data](https://github.com/zenglenn42/utbc2019-hw-05-quiz-engine/blob/13f8a9893b81a2488b788bb229757c30ad51c5a9/assets/js/quiz-factory.js#L8) from the OpenTDB, the controller code started fighting me. [He talked a good game](https://github.com/zenglenn42/utbc2019-hw-05-quiz-engine/blob/220d4e9b134c6b671c09e8105af3495c250b8671/assets/js/controller.js#L1), but he buckled under the pressure of scale. I want an expedient badass, but he's gotta be able to wear a tuxedo too.  Oddly, I had a couple different code paths to the 'replay' state depending if the last question timed-out or the user clicked a response.  It just didn't feel right.
 
-![alt tag](docs/img/tuxedo.png)
+![alt tag](docs/img/tuxedo.jpg)
 [QuizController 3.0](https://github.com/zenglenn42/utbc2019-hw-05-quiz-engine/blob/cc089c2eff0fa4fa75beb6bc6d6c6315c2d88bd8/assets/js/controller.js#L1)
-Image courtesty [AP](https://commons.wikimedia.org/wiki/File:Bruce_Willis_-_1987.jpg#filelinks)
 
 The falt is all mine. Truth be told, I shot from the hip rather than breaking the controller task down into a cohesive set of user stories. I'm not saying I've learned the error of my ways, but I have distilled the controller down to a pretty defensible UML activity diagram. With that in mind, I'm gonna take another run at the controller. [Third time's the charm.](https://github.com/zenglenn42/utbc2019-hw-05-quiz-engine/blob/cc089c2eff0fa4fa75beb6bc6d6c6315c2d88bd8/assets/js/controller.js#L1) ;-)
 
@@ -105,12 +104,6 @@ Oh, the other thing I did today was start playing with UML to document my class 
 I knocked out the guts of the quiz [json](https://github.com/zenglenn42/utbc2019-hw-05-quiz-engine/blob/7d374a4b17eee2ca725413aefdeb9055ce41fc12/assets/js/model.js#L1), [model](https://github.com/zenglenn42/utbc2019-hw-05-quiz-engine/blob/7d374a4b17eee2ca725413aefdeb9055ce41fc12/assets/js/model.js#L74) and [controller](https://github.com/zenglenn42/utbc2019-hw-05-quiz-engine/blob/7d374a4b17eee2ca725413aefdeb9055ce41fc12/assets/js/controller.js#L1) in a day. The models come pretty easily for me and are a natural starting point. I don't need any other pieces to get it going other than some wafer thin html and a console log:
 
 ![alt tag](docs/img/model-unit-test.png)
-
-![alt tag](docs/img/model-controller.png)
-How I'm feeling about the model and controller in this project.
-
-("Breakfast at Tiffany's" courtesy [Pablo Fernández](https://flic.kr/p/7U6dUF)
-"Die Hard 4.0" courtesy [Phim Ảnh](https://flic.kr/p/4NxBRX))
 
 The controller was another story. It felt more like a street fight and had a ton of callbacks to manage both input clicks and various interval timers. First I stood up a primitive user interface:
 
